@@ -4,21 +4,18 @@ using System.Collections;
 public class ProjectileScript : MonoBehaviour {
 
     private float range;
-    private GameObject parentGun;
+    private float damage;
+    private float radius;
 
 	// Use this for initialization
-	void Awake () {    
-        //StartCoroutine(CheckStatus());
+	void Awake () {
 	}
 	
-    public void SetRange(float v)
+    public void SetupProjectile(float ran, float dmg, float rad)
     {
-        range = v;
-    }
-
-    public void SetParent(GameObject p)
-    {
-        parentGun = p;
+        range = ran;
+        damage = dmg;
+        radius = rad;
     }
 
     public void Shoot()
@@ -28,7 +25,8 @@ public class ProjectileScript : MonoBehaviour {
 
     IEnumerator CheckStatus()
     {
-        while(Vector3.Magnitude(transform.position-parentGun.transform.position) < range)
+        
+        while(Vector3.Magnitude(transform.position-transform.parent.position) < range)
         {
             yield return new WaitForSeconds(0.2f);
         }

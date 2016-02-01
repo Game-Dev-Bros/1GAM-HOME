@@ -46,6 +46,16 @@ public class GunScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
+        SetupGun();        
+    }
+
+    void OnInvalidate()
+    {
+        SetupGun();
+    }
+    
+    void SetupGun()
+    {
         switch (type)
         {
             case GunType.Pistol:
@@ -77,7 +87,6 @@ public class GunScript : MonoBehaviour {
                 _projectileSpeed = PistolProjectileSpeed;
                 break;
         }
-        
     }
 
     public void Fire()
@@ -86,21 +95,22 @@ public class GunScript : MonoBehaviour {
             StartCoroutine(FireRoutine());
     }
 
+    void SpawnProjectile()
+    {
+        var bullet = Instantiate(projectile);
+        bullet.transform.parent = gameObject.transform;
+        bullet.transform.localPosition = Vector3.zero;
+        bullet.GetComponent<ProjectileScript>().SetupProjectile(_range, _damage, _radius);
+        bullet.GetComponent<Rigidbody>().AddForce(transform.forward * _projectileSpeed, ForceMode.Force);
+        bullet.GetComponent<ProjectileScript>().Shoot();
+    }
 
     IEnumerator FireRoutine()
     {
         if (!_hasShot)
         {
             _hasShot = true;
-            var bullet = Instantiate(projectile);
-            bullet.transform.position = transform.position;
-            bullet.transform.rotation = transform.rotation;
-            bullet.GetComponent<ProjectileScript>().SetParent(gameObject);
-            bullet.GetComponent<ProjectileScript>().SetRange(_range);
-            var rb = bullet.GetComponent<Rigidbody>();            
-            rb.AddForce(transform.forward*_projectileSpeed, ForceMode.Force);
-            bullet.GetComponent<ProjectileScript>().Shoot();
-
+            SpawnProjectile();
             var waitTime = 1 / _rateOfFire;
             while(waitTime > 0)
             {
