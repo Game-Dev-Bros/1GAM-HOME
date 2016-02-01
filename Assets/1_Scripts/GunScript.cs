@@ -49,7 +49,7 @@ public class GunScript : MonoBehaviour {
         SetupGun();        
     }
 
-    void OnInvalidate()
+    void OnValidate()
     {
         SetupGun();
     }
