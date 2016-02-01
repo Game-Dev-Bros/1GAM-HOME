@@ -18,19 +18,19 @@ public class GunScript : MonoBehaviour {
     const float PistolRange = 200;
     const float PistolDamage = 3;
     const float PistolRadius = 0;
-    const float PistolProjectileSpeed = 2000;
+    const float PistolProjectileSpeed = 10000;
 
     const float MachinegunROF = 3;
     const float MachinegunRange = 100;
     const float MachinegunDamage = 2;
     const float MachinegunRadius = 0;
-    const float MachinegunProjectileSpeed = 2000;
+    const float MachinegunProjectileSpeed = 10000;
 
     const float RocketlauncherROF = 0.25f;
     const float RocketlauncherRange = 400;
     const float RocketlauncherDamage = 10;
     const float RocketlauncherRadius = 10;
-    const float RocketlauncherProjectileSpeed = 1000;
+    const float RocketlauncherProjectileSpeed = 4000;
 
 
     public GunType type;
