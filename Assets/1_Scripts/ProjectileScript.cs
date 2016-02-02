@@ -6,16 +6,44 @@ public class ProjectileScript : MonoBehaviour {
     private float range;
     private float damage;
     private float radius;
+    private TrailRenderer trail;
 
-	// Use this for initialization
-	void Awake () {
+    const float PistolStartWidth = 0.5f;
+    const float PistolEndWidth = 0.3f;
+    const float MachinegunStartWidth = 0.3f;
+    const float MachinegunEndWidth = 0.2f;
+
+
+    // Use this for initialization
+    void Awake () {
+        trail = GetComponentInChildren<TrailRenderer>();
 	}
 	
-    public void SetupProjectile(float ran, float dmg, float rad)
+    public void SetupProjectile(/*GunScript.GunType t,*/ float ran, float dmg, float rad)
     {
+        //ChangeBulletType(t);
         range = ran;
         damage = dmg;
         radius = rad;
+    }
+
+    void ChangeBulletType(GunScript.GunType t)
+    {
+        switch (t)
+        {
+            case GunScript.GunType.Pistol:
+                trail.startWidth = PistolStartWidth;
+                trail.endWidth = PistolEndWidth;
+                break;
+            case GunScript.GunType.Machinegun:
+                trail.startWidth = MachinegunStartWidth;
+                trail.endWidth = MachinegunEndWidth;
+                break;
+            case GunScript.GunType.Rocketlauncher:
+                break;
+            default:
+                break;
+        }
     }
 
     public void Shoot()

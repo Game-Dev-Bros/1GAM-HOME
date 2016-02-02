@@ -18,23 +18,23 @@ public class GunScript : MonoBehaviour {
     const float PistolRange = 200;
     const float PistolDamage = 3;
     const float PistolRadius = 0;
-    const float PistolProjectileSpeed = 10000;
+    const float PistolProjectileSpeed = 8000;
 
     const float MachinegunROF = 3;
     const float MachinegunRange = 100;
     const float MachinegunDamage = 2;
     const float MachinegunRadius = 0;
-    const float MachinegunProjectileSpeed = 10000;
+    const float MachinegunProjectileSpeed = 8000;
 
     const float RocketlauncherROF = 0.25f;
     const float RocketlauncherRange = 400;
     const float RocketlauncherDamage = 10;
     const float RocketlauncherRadius = 10;
-    const float RocketlauncherProjectileSpeed = 4000;
+    const float RocketlauncherProjectileSpeed = 2000;
 
 
     public GunType type;
-    public GameObject projectile;
+    public GameObject pistolProjectile, machinegunProjectile, rocketlauncherProjectile;
 
     private float _rateOfFire; //shots per sec
     private float _range; // so we dont kill the sun by mistake lel
@@ -97,7 +97,22 @@ public class GunScript : MonoBehaviour {
 
     void SpawnProjectile()
     {
-        var bullet = Instantiate(projectile);
+        GameObject bullet;
+        switch (type)
+        {
+            case GunType.Pistol:
+                bullet = Instantiate(pistolProjectile);
+                break;
+            case GunType.Machinegun:
+                bullet = Instantiate(machinegunProjectile);
+                break;
+            case GunType.Rocketlauncher:
+                bullet = Instantiate(rocketlauncherProjectile);
+                break;
+            default:
+                bullet = Instantiate(pistolProjectile);
+                break;
+        }
         bullet.transform.parent = gameObject.transform;
         bullet.transform.localPosition = Vector3.zero;
         bullet.GetComponent<ProjectileScript>().SetupProjectile(_range, _damage, _radius);

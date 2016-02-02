@@ -88,7 +88,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
-  projectile: {fileID: 193636, guid: 137bd24d31114ad4194e75ce13994a64, type: 2}
+  pistolProjectile: {fileID: 193636, guid: 137bd24d31114ad4194e75ce13994a64, type: 2}
+  machinegunProjectile: {fileID: 193636, guid: 442a268a03223314ab223bd8a9934e44, type: 2}
+  rocketlauncherProjectile: {fileID: 193636, guid: 43aad344c7b22e4419d3dfb37f6e5f94,
+    type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -100,6 +103,18 @@ Prefab:
       propertyPath: projectile
       value: 
       objectReference: {fileID: 193636, guid: 137bd24d31114ad4194e75ce13994a64, type: 2}
+    - target: {fileID: 0}
+      propertyPath: pistolProjectile
+      value: 
+      objectReference: {fileID: 193636, guid: 137bd24d31114ad4194e75ce13994a64, type: 2}
+    - target: {fileID: 0}
+      propertyPath: machinegunProjectile
+      value: 
+      objectReference: {fileID: 193636, guid: 442a268a03223314ab223bd8a9934e44, type: 2}
+    - target: {fileID: 0}
+      propertyPath: rocketlauncherProjectile
+      value: 
+      objectReference: {fileID: 193636, guid: 43aad344c7b22e4419d3dfb37f6e5f94, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 146502}
