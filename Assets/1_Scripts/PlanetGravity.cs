@@ -3,12 +3,16 @@
 public class PlanetGravity : MonoBehaviour
 {
     public float gravitationalMagnitude = -9.81f; // same as the damn Earthlings are used too!
-    private float radius;
+    public float radius;
     private Vector3 center;
 
     void Awake()
     {
-        radius = transform.localScale.x / 2;
+        if(radius == 0)
+        {
+            radius = transform.localScale.x / 2;
+        }
+
         center = transform.position;
     }
 

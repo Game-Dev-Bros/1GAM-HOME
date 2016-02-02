@@ -21,7 +21,6 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         ApplyMovement();
-        ApplyRotation();
     }
 
     void ApplyMovement()
@@ -42,21 +41,8 @@ public class PlayerMovement : MonoBehaviour
             transformDiff.Normalize();
         }
 
-        transform.position += transformDiff * movementSpeed * Time.deltaTime;
-    }
-    
-    void ApplyRotation()
-    {
-        Vector3 origin = transform.position + transform.up * transform.localScale.y / 2;
-        Plane plane = new Plane(transform.up, origin);
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-        float distance;
-        if(plane.Raycast(ray, out distance))
-        {
-            Vector3 direction = (ray.GetPoint(distance) - origin).normalized;
-            transform.rotation = Quaternion.LookRotation(direction, transform.up);
-        }
+        Vector3 targetPosition = transform.position + transformDiff * movementSpeed * Time.deltaTime;
+        transform.position = targetPosition;
     }
 
     void FixedUpdate()
@@ -85,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
         if(collision.transform.tag == planetGravity.tag)
         {
             isAirborne = false;
-            surfaceNormal = collision.contacts[0].normal;
+            surfaceNormal = Vector3.Lerp(surfaceNormal, collision.contacts[0].normal, Time.deltaTime);
         }
     }
 
