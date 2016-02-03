@@ -13,6 +13,7 @@ GameObject:
   - 23: {fileID: 2350118}
   - 54: {fileID: 5487150}
   - 114: {fileID: 11467496}
+  - 114: {fileID: 11439656}
   m_Layer: 0
   m_Name: Planet
   m_TagString: Untagged
@@ -80,6 +81,33 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 1
+--- !u!114 &11439656
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 131792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1562768c25165646b1b318057d7f717, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 159912, guid: 212178fafd63cfa4cbba61253ecc7800, type: 2}
+  waveNumber: 4
+  waveFrequency:
+  - 0.2
+  - 0.4
+  - 0.6
+  - 1
+  - 1.2
+  waveDuration:
+  - 25
+  - 20
+  - 16
+  - 13
+  - 10
+  spawnHeight: 10
+  descendSpeed: 0
 --- !u!114 &11467496
 MonoBehaviour:
   m_ObjectHideFlags: 1
