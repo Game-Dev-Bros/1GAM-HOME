@@ -158,9 +158,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 2350118, guid: fb5e4fcf75a11ba4fa87c3b3b304f61f, type: 2}
-      propertyPath: m_Enabled
-      value: 1
+    - target: {fileID: 5487150, guid: fb5e4fcf75a11ba4fa87c3b3b304f61f, type: 2}
+      propertyPath: m_Constraints
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fb5e4fcf75a11ba4fa87c3b3b304f61f, type: 2}
@@ -457,22 +457,6 @@ Light:
   m_ShadowRadius: 0
   m_ShadowAngle: 0
   m_AreaSize: {x: 1, y: 1}
---- !u!1 &1726226746 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 131792, guid: fb5e4fcf75a11ba4fa87c3b3b304f61f, type: 2}
-  m_PrefabInternal: {fileID: 970659891}
---- !u!114 &1726226747
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1726226746}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33cd031621c27be48ac39e825e856ec1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shipPrefab: {fileID: 0}
 --- !u!1 &1733700986
 GameObject:
   m_ObjectHideFlags: 0
