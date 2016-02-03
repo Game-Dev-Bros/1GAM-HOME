@@ -19,7 +19,7 @@ public class PlayerCamera : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
 	}
 	
-	void FixedUpdate ()
+	void Update ()
     {
         Vector3 targetPosition = player.transform.position + player.transform.up * cameraHeight;
 

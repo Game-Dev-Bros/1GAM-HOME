@@ -158,14 +158,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 5487150, guid: fb5e4fcf75a11ba4fa87c3b3b304f61f, type: 2}
-      propertyPath: m_Constraints
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11439656, guid: fb5e4fcf75a11ba4fa87c3b3b304f61f, type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fb5e4fcf75a11ba4fa87c3b3b304f61f, type: 2}
   m_IsPrefabParent: 0
@@ -361,7 +353,7 @@ MonoBehaviour:
   maxDistanceAdjustment: 5
   maxDegreeAdjustment: 8
   adjustToMouse: 0
-  useSlerp: 0
+  useSlerp: 1
   slerpMultiplier: 3
 --- !u!1001 &1567920952
 Prefab:
@@ -401,6 +393,10 @@ Prefab:
     - target: {fileID: 479132, guid: 6cd764417dc8be44da98f53ef6d71bb5, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5419502, guid: 6cd764417dc8be44da98f53ef6d71bb5, type: 2}
+      propertyPath: m_Constraints
+      value: 32
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6cd764417dc8be44da98f53ef6d71bb5, type: 2}

@@ -8,7 +8,6 @@ public class PlayerMovement : MonoBehaviour
 
     public float movementSpeed = 5; // meters per second
 
-    private bool isAirborne = true; // notice me flying, senpai! ಥ_ಥ
     private Vector3 surfaceNormal = Vector3.zero;
 
     void Awake()
@@ -21,15 +20,11 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         ApplyMovement();
+        AlignPlayerToSurface();
     }
 
     void ApplyMovement()
     {
-        if(isAirborne)
-        {
-            return;
-        }
-
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
@@ -45,41 +40,25 @@ public class PlayerMovement : MonoBehaviour
         transform.position = targetPosition;
     }
 
-    void FixedUpdate()
+    void AlignPlayerToSurface()
     {
-        ApplyGravity();
-    }
+        Ray ray = new Ray(transform.position, -transform.up);
 
-    void ApplyGravity()
-    {
-        Vector3 gravitationalForce = Vector3.zero;
+        var hits = Physics.RaycastAll(ray, transform.localScale.y);
 
-        if(isAirborne)
+        foreach(RaycastHit hit in hits)
         {
-            gravitationalForce = planetGravity.GetAtmosphericalGravity(transform.position);
-        }
-        else
-        {
-            gravitationalForce = planetGravity.GetSurfaceGravity(surfaceNormal);
-        }
+            if(hit.transform.tag == "Planet")
+            {
+                surfaceNormal = hit.normal;
 
-        rigidbody.AddForce(gravitationalForce);
-    }
+                Quaternion targetRotation = Quaternion.FromToRotation(transform.up, surfaceNormal) * transform.rotation;
 
-    void OnCollisionStay(Collision collision)
-    {
-        if(collision.transform.tag == planetGravity.tag)
-        {
-            isAirborne = false;
-            surfaceNormal = Vector3.Lerp(surfaceNormal, collision.contacts[0].normal, Time.deltaTime);
-        }
-    }
+                transform.position = hit.point;
+                transform.rotation = targetRotation;
 
-    void OnCollisionExit(Collision collision)
-    {
-        if(collision.transform.tag == planetGravity.tag)
-        {
-            isAirborne = true;
+                break;
+            }
         }
     }
 }

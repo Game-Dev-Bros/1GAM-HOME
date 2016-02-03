@@ -36,16 +36,15 @@ public class EnemyShipScript : MonoBehaviour
     {
         if(!landed)
         {
-            transform.position = Vector3.MoveTowards(transform.position, planet.transform.position, speed*Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, planet.transform.position, speed * Time.deltaTime);
         }
 	}
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Planet")
         {
             landed = true;
-            transform.gameObject.isStatic = true;
         }
     }
 }

@@ -16,7 +16,7 @@ GameObject:
   - 114: {fileID: 11439656}
   m_Layer: 0
   m_Name: Planet
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -93,7 +93,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 159912, guid: 212178fafd63cfa4cbba61253ecc7800, type: 2}
-  waveNumber: 0
+  waveNumber: 4
   waveFrequency:
   - 0.2
   - 0.4
