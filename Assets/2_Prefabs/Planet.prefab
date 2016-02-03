@@ -93,7 +93,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 159912, guid: 212178fafd63cfa4cbba61253ecc7800, type: 2}
-  waveNumber: 4
+  waveNumber: 2
   waveFrequency:
   - 0.2
   - 0.4
@@ -106,7 +106,7 @@ MonoBehaviour:
   - 16
   - 13
   - 10
-  spawnHeight: 10
+  spawnHeight: 30
   descendSpeed: 0
 --- !u!114 &11467496
 MonoBehaviour:
