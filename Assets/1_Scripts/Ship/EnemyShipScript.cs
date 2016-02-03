@@ -11,7 +11,7 @@ public class EnemyShipScript : MonoBehaviour
     
 	void Awake ()
     {
-        planet = GameObject.Find("Planet");
+        planet = GameObject.FindGameObjectWithTag("Planet");
 	}
 
     private IEnumerator Kamikaze(int steps = 60)

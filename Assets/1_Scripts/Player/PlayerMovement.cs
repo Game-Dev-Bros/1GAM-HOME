@@ -2,8 +2,6 @@
 
 public class PlayerMovement : MonoBehaviour
 {
-    private PlanetGravity planetGravity;
-
     private new Rigidbody rigidbody;
 
     public float movementSpeed = 5; // meters per second
@@ -12,8 +10,6 @@ public class PlayerMovement : MonoBehaviour
 
     void Awake()
     {
-        planetGravity = GameObject.FindObjectOfType<PlanetGravity>();
-
         rigidbody = GetComponent<Rigidbody>();
     }
 
