@@ -357,7 +357,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0714c3199c34174091bd8fcc3d62b21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  height: 10
+  cameraHeight: 10
+  maxDistanceAdjustment: 5
+  maxDegreeAdjustment: 8
+  adjustToMouse: 0
+  useSlerp: 0
+  slerpMultiplier: 3
 --- !u!1001 &1567920952
 Prefab:
   m_ObjectHideFlags: 0
