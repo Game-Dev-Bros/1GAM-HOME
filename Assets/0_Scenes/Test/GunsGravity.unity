@@ -1551,6 +1551,10 @@ Prefab:
       propertyPath: waveNumber
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 11439656, guid: fb5e4fcf75a11ba4fa87c3b3b304f61f, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11467496, guid: fb5e4fcf75a11ba4fa87c3b3b304f61f, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: fb5e4fcf75a11ba4fa87c3b3b304f61f, type: 2}
@@ -1724,6 +1728,14 @@ Prefab:
     - target: {fileID: 22413102, guid: ea917f0d0dbff704393de4248fd20bd3, type: 2}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11422598, guid: ea917f0d0dbff704393de4248fd20bd3, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460812, guid: ea917f0d0dbff704393de4248fd20bd3, type: 2}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ea917f0d0dbff704393de4248fd20bd3, type: 2}

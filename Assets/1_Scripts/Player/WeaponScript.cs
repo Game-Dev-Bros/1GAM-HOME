@@ -19,31 +19,31 @@ namespace Weapons
         const string AMMO_GAUGE = "AmmoGauge";
 
         const float PistolROF = 1;
-        const float PistolRange = 200;
+        const float PistolRange = 50;
         const float PistolDamage = 3;
         const float PistolRadius = 0;
         const float PistolImpactForce = 5000;
-        const float PistolProjectileSpeed = 8000;
+        const float PistolProjectileSpeed = 10;
         //const float PistolHeatLimit = 100;
         const float PistoHeatPerShot = 30;
         const float PistolHeatDissipateRate = 0.5f;
 
         const float MachinegunROF = 3;
-        const float MachinegunRange = 100;
+        const float MachinegunRange = 50;
         const float MachinegunDamage = 2;
         const float MachinegunRadius = 0;
         const float MachinegunImpactForce = 10000;
-        const float MachinegunProjectileSpeed = 8000;
+        const float MachinegunProjectileSpeed = 10;
         //const float MachinegunHeatLimit = 100;
         const float MachinegunHeatPerShot = 20;
         const float MachinegunHeatDissipateRate = 0.5f;
 
         const float RocketlauncherROF = 0.5f;
-        const float RocketlauncherRange = 400;
+        const float RocketlauncherRange = 50;
         const float RocketlauncherDamage = 10;
         const float RocketlauncherRadius = 10;
         const float RocketlauncherImpactForce = 100000;
-        const float RocketlauncherProjectileSpeed = 2000;
+        const float RocketlauncherProjectileSpeed = 6;
         const int RocketlauncherAmmoLimit = 10;
         const int RocketlauncherInitialAmmo = 3;
 
@@ -190,8 +190,9 @@ namespace Weapons
             }
             //projectile.transform.parent = gameObject.transform;
             projectile.transform.localPosition = transform.position;
+            projectile.transform.localRotation = transform.rotation;
             //projectile.transform.localRotation = Quaternion.identity;
-            projectile.GetComponent<ProjectileScript>().SetupProjectile(_range, _damage, _radius, _impactForce);
+            projectile.GetComponent<ProjectileScript>().SetupProjectile(_range, _damage, _radius, _projectileSpeed, _impactForce);
             projectile.GetComponent<Rigidbody>().AddForce(transform.forward * _projectileSpeed, ForceMode.Force);
             projectile.GetComponent<ProjectileScript>().Shoot();
         }
