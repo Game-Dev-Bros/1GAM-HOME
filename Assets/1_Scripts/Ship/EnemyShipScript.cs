@@ -44,15 +44,6 @@ public class EnemyShipScript : MonoBehaviour
         }
     }
 
-    void Update()
-    {
-        if(hp <= 0 && !_hasDied)
-        {
-            _hasDied = true;
-            SpawnDebris();
-        }
-    }
-
     void OnCollisionEnter(Collision other)
     {
         switch (other.gameObject.tag)
@@ -64,11 +55,18 @@ public class EnemyShipScript : MonoBehaviour
             case "PlayerProjectile":
                 var ps = other.gameObject.GetComponent<ProjectileScript>();
                 hp -= (int)ps.GetProjectileDamage();
-                Destroy(other.gameObject);
-                break;
 
-            case "Player":
-                SpawnDebris();
+                if(hp <= 0 && !_hasDied)
+                {
+                    _hasDied = true;
+
+                    Vector3 collisionPoint = other.contacts[0].point;
+                    float impactForce = ps.GetProjectileImpactForce();
+
+                    SpawnDebris(collisionPoint, impactForce);
+                }
+
+                Destroy(other.gameObject);
                 break;
 
             default:
@@ -76,18 +74,21 @@ public class EnemyShipScript : MonoBehaviour
         }
     }
 
-    void SpawnDebris()
+    void SpawnDebris(Vector3 collisionPoint, float impactForce)
     {
+        Destroy(gameObject);
+
         if(shipDebrisPrefabs.Count > 0)
         {
             GameObject debris = Instantiate(shipDebrisPrefabs[Random.Range(0, shipDebrisPrefabs.Count)]);
+
             debris.name = shipDebrisPrefabs[0].name + "Debris";
             debris.SetActive(true);
             debris.transform.SetParent(transform.parent);
             debris.transform.localPosition = transform.localPosition;
             debris.transform.localRotation = transform.localRotation;
-        }
 
-        Destroy(gameObject);
+            debris.GetComponent<EnemyShipDebris>().AddExplosionForce(collisionPoint, impactForce);
+        }
     }
 }

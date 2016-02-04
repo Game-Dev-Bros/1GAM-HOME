@@ -6,6 +6,7 @@ public class ProjectileScript : MonoBehaviour {
     private float _range;
     private float _damage;
     private float _radius;
+    private float _impactForce;
     private GameObject _player;
 
     // Use this for initialization
@@ -13,12 +14,13 @@ public class ProjectileScript : MonoBehaviour {
         _player = GameObject.FindWithTag("Player");
 	}
 	
-    public void SetupProjectile(/*GunScript.GunType t,*/ float ran, float dmg, float rad)
+    public void SetupProjectile(/*GunScript.GunType t,*/ float ran, float dmg, float rad, float imp)
     {
         //ChangeBulletType(t);
         _range = ran;
         _damage = dmg;
         _radius = rad;
+        _impactForce = imp;
     }
 
     public void Shoot()
@@ -29,6 +31,11 @@ public class ProjectileScript : MonoBehaviour {
     public float GetProjectileDamage()
     {
         return _damage;
+    }
+    
+    public float GetProjectileImpactForce()
+    {
+        return _impactForce;
     }
 
     IEnumerator CheckStatus()

@@ -22,6 +22,7 @@ namespace Weapons
         const float PistolRange = 200;
         const float PistolDamage = 3;
         const float PistolRadius = 0;
+        const float PistolImpactForce = 5000;
         const float PistolProjectileSpeed = 8000;
         //const float PistolHeatLimit = 100;
         const float PistoHeatPerShot = 30;
@@ -31,6 +32,7 @@ namespace Weapons
         const float MachinegunRange = 100;
         const float MachinegunDamage = 2;
         const float MachinegunRadius = 0;
+        const float MachinegunImpactForce = 10000;
         const float MachinegunProjectileSpeed = 8000;
         //const float MachinegunHeatLimit = 100;
         const float MachinegunHeatPerShot = 20;
@@ -40,6 +42,7 @@ namespace Weapons
         const float RocketlauncherRange = 400;
         const float RocketlauncherDamage = 10;
         const float RocketlauncherRadius = 10;
+        const float RocketlauncherImpactForce = 100000;
         const float RocketlauncherProjectileSpeed = 2000;
         const int RocketlauncherAmmoLimit = 10;
         const int RocketlauncherInitialAmmo = 3;
@@ -52,6 +55,7 @@ namespace Weapons
         private float _range; // so we dont kill the sun by mistake lel
         private float _damage; //self explanatory
         private float _radius; // in case we have rocket launcher or other explosives
+        private float _impactForce; // force of the explosion
         private float _projectileSpeed;
         private float _currentHeat;
         private int _currentAmmo;
@@ -83,6 +87,7 @@ namespace Weapons
                     _range = PistolRange;
                     _damage = PistolDamage;
                     _radius = PistolRadius;
+                    _impactForce = PistolImpactForce;
                     _projectileSpeed = PistolProjectileSpeed;
                     _currentHeat = 0f;
                     break;
@@ -91,6 +96,7 @@ namespace Weapons
                     _range = MachinegunRange;
                     _damage = MachinegunDamage;
                     _radius = MachinegunRadius;
+                    _impactForce = MachinegunImpactForce;
                     _projectileSpeed = MachinegunProjectileSpeed;
                     _currentHeat = 0f;
                     break;
@@ -99,16 +105,13 @@ namespace Weapons
                     _range = RocketlauncherRange;
                     _damage = RocketlauncherDamage;
                     _radius = RocketlauncherRadius;
+                    _impactForce = RocketlauncherImpactForce;
                     _projectileSpeed = RocketlauncherProjectileSpeed;
                     _currentAmmo = RocketlauncherInitialAmmo;
                     break;
                 default:
-                    _rateOfFire = PistolROF;
-                    _range = PistolRange;
-                    _damage = PistolDamage;
-                    _radius = PistolRadius;
-                    _projectileSpeed = PistolProjectileSpeed;
-                    _currentHeat = 0f;
+                    type = WeaponType.Pistol;
+                    SetupGun();
                     break;
             }
         }
@@ -188,7 +191,7 @@ namespace Weapons
             //projectile.transform.parent = gameObject.transform;
             projectile.transform.localPosition = transform.position;
             //projectile.transform.localRotation = Quaternion.identity;
-            projectile.GetComponent<ProjectileScript>().SetupProjectile(_range, _damage, _radius);
+            projectile.GetComponent<ProjectileScript>().SetupProjectile(_range, _damage, _radius, _impactForce);
             projectile.GetComponent<Rigidbody>().AddForce(transform.forward * _projectileSpeed, ForceMode.Force);
             projectile.GetComponent<ProjectileScript>().Shoot();
         }
