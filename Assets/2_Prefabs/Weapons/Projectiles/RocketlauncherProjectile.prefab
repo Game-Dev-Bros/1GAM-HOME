@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 424178}
   - 199: {fileID: 19909234}
   - 198: {fileID: 19878750}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28,7 +28,7 @@ GameObject:
   - 33: {fileID: 3386378}
   - 136: {fileID: 13660212}
   - 23: {fileID: 2359692}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,7 +46,7 @@ GameObject:
   - 33: {fileID: 3329016}
   - 135: {fileID: 13575020}
   - 23: {fileID: 2371384}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -63,7 +63,7 @@ GameObject:
   - 4: {fileID: 433818}
   - 199: {fileID: 19978148}
   - 198: {fileID: 19878938}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Afterburner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -82,7 +82,7 @@ GameObject:
   - 135: {fileID: 13567460}
   - 54: {fileID: 5402352}
   - 114: {fileID: 11469186}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: RocketlauncherProjectile
   m_TagString: PlayerProjectile
   m_Icon: {fileID: 0}
@@ -3406,6 +3406,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_TagString
       value: PlayerProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
