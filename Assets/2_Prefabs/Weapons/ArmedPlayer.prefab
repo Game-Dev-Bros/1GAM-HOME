@@ -8,7 +8,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 469526}
-  m_Layer: 0
+  - 54: {fileID: 5461442}
+  m_Layer: 8
   m_Name: WeaponPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,7 +27,7 @@ GameObject:
   - 33: {fileID: 3381044}
   - 65: {fileID: 6594480}
   - 23: {fileID: 2394124}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61,7 +62,7 @@ GameObject:
   - 65: {fileID: 6579916}
   - 23: {fileID: 2354530}
   - 114: {fileID: 11464620}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rotator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -80,7 +81,7 @@ GameObject:
   - 65: {fileID: 6508828}
   - 23: {fileID: 2376606}
   - 114: {fileID: 11439486}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: MachinegunPrefab
   m_TagString: PlayerWeapon
   m_Icon: {fileID: 0}
@@ -117,7 +118,7 @@ GameObject:
   - 65: {fileID: 6519138}
   - 23: {fileID: 2397668}
   - 114: {fileID: 11423562}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PistolPrefab
   m_TagString: PlayerWeapon
   m_Icon: {fileID: 0}
@@ -136,7 +137,7 @@ GameObject:
   - 65: {fileID: 6573440}
   - 23: {fileID: 2357878}
   - 114: {fileID: 11461896}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RocketlauncherPrefab
   m_TagString: PlayerWeapon
   m_Icon: {fileID: 0}
@@ -425,6 +426,21 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 32
+  m_CollisionDetection: 0
+--- !u!54 &5461442
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 106796}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 96
   m_CollisionDetection: 0
 --- !u!65 &6508828
 BoxCollider:

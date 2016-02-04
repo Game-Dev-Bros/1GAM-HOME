@@ -6,9 +6,11 @@ public class ProjectileScript : MonoBehaviour {
     private float _range;
     private float _damage;
     private float _radius;
+    private GameObject _player;
 
     // Use this for initialization
     void Awake () {
+        _player = GameObject.FindWithTag("Player");
 	}
 	
     public void SetupProjectile(/*GunScript.GunType t,*/ float ran, float dmg, float rad)
@@ -31,7 +33,7 @@ public class ProjectileScript : MonoBehaviour {
 
     IEnumerator CheckStatus()
     {        
-        while(Vector3.Magnitude(transform.position-transform.parent.position) < _range)
+        while(Vector3.Magnitude(transform.position-_player.transform.position) < _range)
         {
             yield return new WaitForSeconds(0.2f);
         }

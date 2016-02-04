@@ -185,9 +185,9 @@ namespace Weapons
                     projectile = Instantiate(pistolProjectile);
                     break;
             }
-            projectile.transform.parent = gameObject.transform;
-            projectile.transform.localPosition = Vector3.zero;
-            projectile.transform.localRotation = Quaternion.identity;
+            //projectile.transform.parent = gameObject.transform;
+            projectile.transform.localPosition = transform.position;
+            //projectile.transform.localRotation = Quaternion.identity;
             projectile.GetComponent<ProjectileScript>().SetupProjectile(_range, _damage, _radius);
             projectile.GetComponent<Rigidbody>().AddForce(transform.forward * _projectileSpeed, ForceMode.Force);
             projectile.GetComponent<ProjectileScript>().Shoot();
