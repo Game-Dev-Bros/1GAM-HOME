@@ -132,7 +132,8 @@ Prefab:
       propertyPath: waveNumber
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11467496, guid: fb5e4fcf75a11ba4fa87c3b3b304f61f, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: fb5e4fcf75a11ba4fa87c3b3b304f61f, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1284053015
@@ -233,7 +234,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0714c3199c34174091bd8fcc3d62b21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  height: 0
+  cameraHeight: 10
+  maxDistanceAdjustment: 15
+  maxDegreeAdjustment: 5
+  adjustToMouse: 1
+  useSlerp: 1
+  slerpMultiplier: 3
 --- !u!1 &1498985942
 GameObject:
   m_ObjectHideFlags: 0

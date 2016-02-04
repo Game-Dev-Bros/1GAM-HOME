@@ -5,46 +5,53 @@ using System;
 public class EnemyShipScript : MonoBehaviour
 {
     public float speed = 10;
+    public int hp = 10;
 
-    private GameObject planet;
-    private bool landed = false;
+    private bool _hasDied = false;
+    private GameObject _planet;
+    private bool _landed = false;
     
 	void Awake ()
     {
-        planet = GameObject.FindGameObjectWithTag("Planet");
+        _planet = GameObject.FindGameObjectWithTag("Planet");
+        StartCoroutine(LandShip());
 	}
 
-    private IEnumerator Kamikaze(int steps = 60)
+    IEnumerator LandShip()
     {
-        var radiusVector = (transform.position - planet.transform.position).normalized*planet.transform.localScale.x;
-        var finaVector = ((planet.transform.position - transform.position) + radiusVector);
-
-        var step = (finaVector.magnitude * speed) / steps;
-        var pos = 0f;
-        for (int i = 0; i < steps; i++)
+        while (true)
         {
-
-            transform.position = Vector3.Lerp(transform.position, planet.transform.position, pos);
-            pos += step;
-            Debug.Log("moverino");
-            //transform.position = Vector3.MoveTowards(transform.position, planet.transform.position, step);
-            yield return null;
+            if (!_landed && _planet != null)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, _planet.transform.position, speed * Time.deltaTime);
+            }
+            yield return new WaitForEndOfFrame();
         }
     }
 
-    void Update ()
+    void Update()
     {
-        if(!landed)
+        if(hp < 0 && !_hasDied)
         {
-            transform.position = Vector3.MoveTowards(transform.position, planet.transform.position, speed * Time.deltaTime);
+            _hasDied = true;
+            Debug.Log("Im dead");
         }
-	}
+    }
 
-    void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter(Collision other)
     {
-        if (collision.gameObject.tag == "Planet")
+        switch (other.gameObject.tag)
         {
-            landed = true;
+            case "Planet":
+                _landed = true;
+                break;
+            case "PlayerProjectile":
+                var ps = other.gameObject.GetComponent<ProjectileScript>();
+                hp -= (int)ps.GetProjectileDamage();
+                Destroy(other.gameObject);
+                break;
+            default:
+                break;
         }
     }
 }

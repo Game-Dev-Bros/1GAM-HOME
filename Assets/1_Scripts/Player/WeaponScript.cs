@@ -60,12 +60,6 @@ namespace Weapons
 
         private bool _hasShot = false;
 
-        // Use this for initialization
-        //void Start () {        
-        //       SetupGun();
-        //       SetupUI();       
-        //   }
-
         void Awake()
         {
             SetupGun();
