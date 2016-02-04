@@ -12,7 +12,6 @@ GameObject:
   - 135: {fileID: 13592746}
   - 23: {fileID: 2350118}
   - 54: {fileID: 5487150}
-  - 114: {fileID: 11467496}
   - 114: {fileID: 11439656}
   m_Layer: 0
   m_Name: Planet
@@ -93,7 +92,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 159912, guid: 212178fafd63cfa4cbba61253ecc7800, type: 2}
-  waveNumber: 2
+  waveNumber: 0
   waveFrequency:
   - 0.2
   - 0.4
@@ -108,19 +107,6 @@ MonoBehaviour:
   - 10
   spawnHeight: 30
   descendSpeed: 0
---- !u!114 &11467496
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 131792}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6de7ca065ea18242be9c8cccc452c35, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gravitationalMagnitude: -9.81
-  radius: 0
 --- !u!135 &13592746
 SphereCollider:
   m_ObjectHideFlags: 1

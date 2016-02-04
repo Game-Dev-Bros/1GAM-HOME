@@ -73,6 +73,7 @@ public class EnemySpawnerScript : MonoBehaviour
         Vector3 spawnPosition = surfacePosition + surfaceNormal * spawnHeight;
 
         GameObject enemy = Instantiate(enemyPrefab);
+        enemy.name = enemyPrefab.name;
         enemy.transform.parent = gameObject.transform;
         enemy.transform.position = spawnPosition;
         enemy.transform.up = surfaceNormal;

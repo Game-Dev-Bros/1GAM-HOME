@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System;
+using System.Collections.Generic;
 
 public class EnemyShipScript : MonoBehaviour
 {
@@ -11,11 +11,26 @@ public class EnemyShipScript : MonoBehaviour
     private GameObject _planet;
     private bool _landed = false;
     
+    private List<GameObject> shipDebrisPrefabs = new List<GameObject>();
+
 	void Awake ()
     {
         _planet = GameObject.FindGameObjectWithTag("Planet");
-        StartCoroutine(LandShip());
 	}
+
+    void Start()
+    {
+        StartCoroutine(LandShip());
+
+        GameObject debrisParent = GameObject.Find("Debris");
+        foreach(Transform child in debrisParent.transform)
+        {
+            if(child.name == transform.name)
+            {
+                shipDebrisPrefabs.Add(child.gameObject);
+            }
+        }
+    }
 
     IEnumerator LandShip()
     {
@@ -31,10 +46,10 @@ public class EnemyShipScript : MonoBehaviour
 
     void Update()
     {
-        if(hp < 0 && !_hasDied)
+        if(hp <= 0 && !_hasDied)
         {
             _hasDied = true;
-            Debug.Log("Im dead");
+            SpawnDebris();
         }
     }
 
@@ -45,13 +60,34 @@ public class EnemyShipScript : MonoBehaviour
             case "Planet":
                 _landed = true;
                 break;
+
             case "PlayerProjectile":
                 var ps = other.gameObject.GetComponent<ProjectileScript>();
                 hp -= (int)ps.GetProjectileDamage();
                 Destroy(other.gameObject);
                 break;
+
+            case "Player":
+                SpawnDebris();
+                break;
+
             default:
                 break;
         }
+    }
+
+    void SpawnDebris()
+    {
+        if(shipDebrisPrefabs.Count > 0)
+        {
+            GameObject debris = Instantiate(shipDebrisPrefabs[Random.Range(0, shipDebrisPrefabs.Count)]);
+            debris.name = shipDebrisPrefabs[0].name + "Debris";
+            debris.SetActive(true);
+            debris.transform.SetParent(transform.parent);
+            debris.transform.localPosition = transform.localPosition;
+            debris.transform.localRotation = transform.localRotation;
+        }
+
+        Destroy(gameObject);
     }
 }
