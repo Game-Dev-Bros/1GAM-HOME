@@ -88,7 +88,10 @@ public class EnemyShipScript : MonoBehaviour
             debris.transform.localPosition = transform.localPosition;
             debris.transform.localRotation = transform.localRotation;
 
-            debris.GetComponent<EnemyShipDebris>().AddExplosionForce(collisionPoint, impactForce);
+            foreach(Transform child in debris.transform)
+            {
+                child.GetComponent<EnemyShipDebris>().AddExplosionForce(impactForce, collisionPoint, 0.1f);
+            }
         }
     }
 }
