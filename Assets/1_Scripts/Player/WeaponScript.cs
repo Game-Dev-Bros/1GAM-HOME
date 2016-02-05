@@ -22,8 +22,8 @@ namespace Weapons
         const float PistolRange = 50;
         const float PistolDamage = 3;
         const float PistolRadius = 0;
-        const float PistolImpactForce = 5000;
-        const float PistolProjectileSpeed = 10;
+        const float PistolImpactForce = 200000;
+        const float PistolProjectileSpeed = 100;
         //const float PistolHeatLimit = 100;
         const float PistoHeatPerShot = 30;
         const float PistolHeatDissipateRate = 0.5f;
@@ -32,8 +32,8 @@ namespace Weapons
         const float MachinegunRange = 50;
         const float MachinegunDamage = 2;
         const float MachinegunRadius = 0;
-        const float MachinegunImpactForce = 10000;
-        const float MachinegunProjectileSpeed = 10;
+        const float MachinegunImpactForce = 200000;
+        const float MachinegunProjectileSpeed = 100;
         //const float MachinegunHeatLimit = 100;
         const float MachinegunHeatPerShot = 20;
         const float MachinegunHeatDissipateRate = 0.5f;
@@ -42,8 +42,8 @@ namespace Weapons
         const float RocketlauncherRange = 50;
         const float RocketlauncherDamage = 10;
         const float RocketlauncherRadius = 10;
-        const float RocketlauncherImpactForce = 100000;
-        const float RocketlauncherProjectileSpeed = 6;
+        const float RocketlauncherImpactForce = 800000;
+        const float RocketlauncherProjectileSpeed = 30;
         const int RocketlauncherAmmoLimit = 10;
         const int RocketlauncherInitialAmmo = 3;
 

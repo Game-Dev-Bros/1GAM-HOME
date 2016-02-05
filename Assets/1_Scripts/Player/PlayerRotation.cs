@@ -2,6 +2,8 @@
 
 public class PlayerRotation : MonoBehaviour
 {
+    public int rotationSpeed = 10;
+
     void Update()
     {
         ApplyRotation();
@@ -17,7 +19,7 @@ public class PlayerRotation : MonoBehaviour
         if(plane.Raycast(ray, out distance))
         {
             Vector3 direction = (ray.GetPoint(distance) - origin).normalized;
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(direction, transform.up), Time.deltaTime * 5);
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(direction, transform.up), Time.deltaTime * rotationSpeed);
         }
     }
 }
