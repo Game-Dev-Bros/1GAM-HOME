@@ -34,7 +34,9 @@ public class RingRadarScript : MonoBehaviour {
         {            
             for(int i = 0; i<_shipsToTrack.Count; i++)
             {
-                UpdateIndicator(_shipsToTrack[i], i);
+                var currShip = _shipsToTrack[i];
+                if(currShip != null)
+                    UpdateIndicator(_shipsToTrack[i], i);
             }
             yield return new WaitForEndOfFrame();
         }
@@ -47,11 +49,11 @@ public class RingRadarScript : MonoBehaviour {
         var rayCastDirUp = _player.transform.up.normalized; //_radarPlane.mesh.normals[0];
         //Debug.DrawRay(ship.transform.position, rayCastDirUp * 50, Color.red, 1f);
         if (Physics.Raycast(ship.transform.position, rayCastDirUp, out hit, 500f, LayerMask.GetMask("Radar"))){
-            indicator.gameObject.SetActive(true);
             //Debug.Log("It's a hit!");
             var dir = (hit.point - _player.transform.position).normalized;
             //Debug.DrawRay(ship.transform.position, dir * 50, Color.green, 1f);
             indicator.transform.rotation = Quaternion.LookRotation(dir);
+            indicator.gameObject.SetActive(true);
         }
         else {
             indicator.gameObject.SetActive(false);
@@ -63,6 +65,7 @@ public class RingRadarScript : MonoBehaviour {
         }
         else{
             RemoveShipToTrack(ship);
+            _indicatorList.Remove(indicator);
             Destroy(indicator);
         }
     }
