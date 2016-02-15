@@ -10,16 +10,12 @@ public class EnemyShipScript : MonoBehaviour
 
     private bool _hasDied = false;
     private GameObject _planet;
-<<<<<<< HEAD
     private RingRadarScript _radar;
     //private bool _landed = false;
-    
-=======
     private bool _landed = false;
 
     private GameObject _landingZone;
 
->>>>>>> a2ff9720bd02b56811fef2230e361804456ba8b0
     private List<GameObject> shipDebrisPrefabs = new List<GameObject>();
 
 	void Awake ()
@@ -108,16 +104,16 @@ public class EnemyShipScript : MonoBehaviour
         }
     }
 
-<<<<<<< HEAD
+
     public float GetDistanceFromPlanetSurface()
     {
         RaycastHit hit;
         Physics.Linecast(transform.position, _planet.transform.position, out hit);
-        return (hit.point-transform.position).magnitude;
-=======
+        return (hit.point - transform.position).magnitude;
+    }
+
     public void AssociateLandingZone(GameObject landingZone)
     {
         _landingZone = landingZone;
->>>>>>> a2ff9720bd02b56811fef2230e361804456ba8b0
     }
 }
