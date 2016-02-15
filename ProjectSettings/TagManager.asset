@@ -23,8 +23,8 @@ TagManager:
   - Enemy
   - Planet
   - PlayerProjectile
-  - 
-  - 
+  - Radar
+  - RadarInvisible
   - 
   - 
   - 

@@ -6,22 +6,31 @@ public class EnemyShipScript : MonoBehaviour
 {
     public float speed = 10;
     public int hp = 10;
+    public bool hasLanded = false;
 
     private bool _hasDied = false;
     private GameObject _planet;
+<<<<<<< HEAD
+    private RingRadarScript _radar;
+    //private bool _landed = false;
+    
+=======
     private bool _landed = false;
 
     private GameObject _landingZone;
 
+>>>>>>> a2ff9720bd02b56811fef2230e361804456ba8b0
     private List<GameObject> shipDebrisPrefabs = new List<GameObject>();
 
 	void Awake ()
     {
         _planet = GameObject.FindGameObjectWithTag("Planet");
-	}
+        _radar = GameObject.Find("RingRadar").GetComponent<RingRadarScript>();
+    }
 
     void Start()
     {
+        _radar.RegisterNewShipToTrack(gameObject);
         StartCoroutine(LandShip());
 
         GameObject debrisParent = GameObject.Find("Debris");
@@ -34,11 +43,12 @@ public class EnemyShipScript : MonoBehaviour
         }
     }
 
+
     IEnumerator LandShip()
     {
         while (true)
         {
-            if (!_landed && _planet != null)
+            if (!hasLanded && _planet != null)
             {
                 transform.position = Vector3.MoveTowards(transform.position, _planet.transform.position, speed * Time.deltaTime);
             }
@@ -51,7 +61,7 @@ public class EnemyShipScript : MonoBehaviour
         switch (other.gameObject.tag)
         {
             case "Planet":
-                _landed = true;
+                hasLanded = true;
                 break;
 
             case "PlayerProjectile":
@@ -61,7 +71,7 @@ public class EnemyShipScript : MonoBehaviour
                 if(hp <= 0 && !_hasDied)
                 {
                     _hasDied = true;
-
+                    _radar.RemoveShipToTrack(gameObject);
                     Vector3 collisionPoint = other.contacts[0].point;
                     float impactForce = ps.GetProjectileImpactForce();
 
@@ -98,8 +108,16 @@ public class EnemyShipScript : MonoBehaviour
         }
     }
 
+<<<<<<< HEAD
+    public float GetDistanceFromPlanetSurface()
+    {
+        RaycastHit hit;
+        Physics.Linecast(transform.position, _planet.transform.position, out hit);
+        return (hit.point-transform.position).magnitude;
+=======
     public void AssociateLandingZone(GameObject landingZone)
     {
         _landingZone = landingZone;
+>>>>>>> a2ff9720bd02b56811fef2230e361804456ba8b0
     }
 }
