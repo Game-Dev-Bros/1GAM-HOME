@@ -383,6 +383,7 @@ GameObject:
   - 23: {fileID: 235433061}
   - 64: {fileID: 235433060}
   - 54: {fileID: 235433059}
+  - 114: {fileID: 235433063}
   m_Layer: 0
   m_Name: EnemyShip10
   m_TagString: Untagged
@@ -462,6 +463,19 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 235433057}
   m_Mesh: {fileID: 1582294482}
+--- !u!114 &235433063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 235433057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a0cb533f7d7b34dbe4e3849a006fb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fallingSpeed: 3
+  freeHeight: 0
 --- !u!1 &239603255
 GameObject:
   m_ObjectHideFlags: 0
@@ -474,6 +488,7 @@ GameObject:
   - 23: {fileID: 239603259}
   - 64: {fileID: 239603258}
   - 54: {fileID: 239603257}
+  - 114: {fileID: 239603261}
   m_Layer: 0
   m_Name: EnemyShip8
   m_TagString: Untagged
@@ -553,6 +568,19 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 239603255}
   m_Mesh: {fileID: 789056345}
+--- !u!114 &239603261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 239603255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a0cb533f7d7b34dbe4e3849a006fb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fallingSpeed: 3
+  freeHeight: 0
 --- !u!1 &406399294
 GameObject:
   m_ObjectHideFlags: 0
@@ -565,6 +593,7 @@ GameObject:
   - 23: {fileID: 406399298}
   - 64: {fileID: 406399297}
   - 54: {fileID: 406399296}
+  - 114: {fileID: 406399300}
   m_Layer: 0
   m_Name: EnemyShip6
   m_TagString: Untagged
@@ -644,6 +673,19 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 406399294}
   m_Mesh: {fileID: 2005183395}
+--- !u!114 &406399300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 406399294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a0cb533f7d7b34dbe4e3849a006fb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fallingSpeed: 3
+  freeHeight: 0
 --- !u!1 &421723483
 GameObject:
   m_ObjectHideFlags: 0
@@ -656,6 +698,7 @@ GameObject:
   - 23: {fileID: 421723487}
   - 64: {fileID: 421723486}
   - 54: {fileID: 421723485}
+  - 114: {fileID: 421723489}
   m_Layer: 0
   m_Name: EnemyShip2
   m_TagString: Untagged
@@ -735,6 +778,19 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 421723483}
   m_Mesh: {fileID: 571169157}
+--- !u!114 &421723489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 421723483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a0cb533f7d7b34dbe4e3849a006fb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fallingSpeed: 3
+  freeHeight: 0
 --- !u!1 &425283186
 GameObject:
   m_ObjectHideFlags: 0
@@ -743,7 +799,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 425283190}
-  - 114: {fileID: 425283188}
   m_Layer: 0
   m_Name: EnemyShip
   m_TagString: Debris
@@ -751,19 +806,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!114 &425283188
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 425283186}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36a0cb533f7d7b34dbe4e3849a006fb3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fallingSpeed: 3
-  freeHeight: 0
 --- !u!4 &425283190
 Transform:
   m_ObjectHideFlags: 0
@@ -1106,6 +1148,7 @@ GameObject:
   - 23: {fileID: 728965669}
   - 64: {fileID: 728965668}
   - 54: {fileID: 728965667}
+  - 114: {fileID: 728965671}
   m_Layer: 0
   m_Name: EnemyShip4
   m_TagString: Untagged
@@ -1185,6 +1228,19 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 728965665}
   m_Mesh: {fileID: 2046319967}
+--- !u!114 &728965671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 728965665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a0cb533f7d7b34dbe4e3849a006fb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fallingSpeed: 3
+  freeHeight: 0
 --- !u!43 &789056345
 Mesh:
   m_ObjectHideFlags: 0
@@ -1325,6 +1381,7 @@ GameObject:
   - 23: {fileID: 849744481}
   - 64: {fileID: 849744480}
   - 54: {fileID: 849744479}
+  - 114: {fileID: 849744483}
   m_Layer: 0
   m_Name: EnemyShip1
   m_TagString: Untagged
@@ -1404,6 +1461,19 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 849744477}
   m_Mesh: {fileID: 216741735}
+--- !u!114 &849744483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 849744477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a0cb533f7d7b34dbe4e3849a006fb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fallingSpeed: 3
+  freeHeight: 0
 --- !u!1 &932095112
 GameObject:
   m_ObjectHideFlags: 0
@@ -1601,7 +1671,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11439656, guid: fb5e4fcf75a11ba4fa87c3b3b304f61f, type: 2}
       propertyPath: waveNumber
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 11439656, guid: fb5e4fcf75a11ba4fa87c3b3b304f61f, type: 2}
       propertyPath: m_Enabled
@@ -1639,6 +1709,7 @@ GameObject:
   - 23: {fileID: 1004415167}
   - 64: {fileID: 1004415166}
   - 54: {fileID: 1004415165}
+  - 114: {fileID: 1004415169}
   m_Layer: 0
   m_Name: EnemyShip9
   m_TagString: Untagged
@@ -1718,6 +1789,19 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1004415163}
   m_Mesh: {fileID: 1139673423}
+--- !u!114 &1004415169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1004415163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a0cb533f7d7b34dbe4e3849a006fb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fallingSpeed: 3
+  freeHeight: 0
 --- !u!1001 &1047622508
 Prefab:
   m_ObjectHideFlags: 0
@@ -1976,6 +2060,7 @@ GameObject:
   - 23: {fileID: 1173011199}
   - 64: {fileID: 1173011198}
   - 54: {fileID: 1173011197}
+  - 114: {fileID: 1173011201}
   m_Layer: 0
   m_Name: EnemyShip3
   m_TagString: Untagged
@@ -2055,6 +2140,19 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1173011195}
   m_Mesh: {fileID: 728932414}
+--- !u!114 &1173011201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1173011195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a0cb533f7d7b34dbe4e3849a006fb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fallingSpeed: 3
+  freeHeight: 0
 --- !u!1 &1176753181
 GameObject:
   m_ObjectHideFlags: 0
@@ -2328,6 +2426,7 @@ GameObject:
   - 23: {fileID: 1507638865}
   - 64: {fileID: 1507638864}
   - 54: {fileID: 1507638863}
+  - 114: {fileID: 1507638867}
   m_Layer: 0
   m_Name: EnemyShip5
   m_TagString: Untagged
@@ -2407,6 +2506,19 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1507638861}
   m_Mesh: {fileID: 2052232332}
+--- !u!114 &1507638867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1507638861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a0cb533f7d7b34dbe4e3849a006fb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fallingSpeed: 3
+  freeHeight: 0
 --- !u!1 &1535156014
 GameObject:
   m_ObjectHideFlags: 0
@@ -2669,6 +2781,7 @@ GameObject:
   - 23: {fileID: 1625334422}
   - 64: {fileID: 1625334421}
   - 54: {fileID: 1625334420}
+  - 114: {fileID: 1625334424}
   m_Layer: 0
   m_Name: EnemyShip11
   m_TagString: Untagged
@@ -2748,6 +2861,19 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1625334418}
   m_Mesh: {fileID: 58681057}
+--- !u!114 &1625334424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1625334418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a0cb533f7d7b34dbe4e3849a006fb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fallingSpeed: 3
+  freeHeight: 0
 --- !u!1 &1700361715
 GameObject:
   m_ObjectHideFlags: 0
@@ -2760,6 +2886,7 @@ GameObject:
   - 23: {fileID: 1700361719}
   - 64: {fileID: 1700361718}
   - 54: {fileID: 1700361717}
+  - 114: {fileID: 1700361721}
   m_Layer: 0
   m_Name: EnemyShip7
   m_TagString: Untagged
@@ -2839,6 +2966,19 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1700361715}
   m_Mesh: {fileID: 1456385126}
+--- !u!114 &1700361721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1700361715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a0cb533f7d7b34dbe4e3849a006fb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fallingSpeed: 3
+  freeHeight: 0
 --- !u!1 &1733700986
 GameObject:
   m_ObjectHideFlags: 0
@@ -3338,6 +3478,7 @@ GameObject:
   - 23: {fileID: 2109610131}
   - 64: {fileID: 2109610130}
   - 54: {fileID: 2109610129}
+  - 114: {fileID: 2109610133}
   m_Layer: 0
   m_Name: EnemyShip12
   m_TagString: Untagged
@@ -3417,3 +3558,16 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2109610127}
   m_Mesh: {fileID: 934078333}
+--- !u!114 &2109610133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2109610127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a0cb533f7d7b34dbe4e3849a006fb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fallingSpeed: 3
+  freeHeight: 0
