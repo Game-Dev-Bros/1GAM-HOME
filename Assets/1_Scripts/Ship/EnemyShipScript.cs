@@ -10,7 +10,9 @@ public class EnemyShipScript : MonoBehaviour
     private bool _hasDied = false;
     private GameObject _planet;
     private bool _landed = false;
-    
+
+    private GameObject _landingZone;
+
     private List<GameObject> shipDebrisPrefabs = new List<GameObject>();
 
 	void Awake ()
@@ -77,8 +79,9 @@ public class EnemyShipScript : MonoBehaviour
     void SpawnDebris(Vector3 collisionPoint, float impactForce)
     {
         Destroy(gameObject);
+        Destroy(_landingZone);
 
-        if(shipDebrisPrefabs.Count > 0)
+        if (shipDebrisPrefabs.Count > 0)
         {
             GameObject debris = Instantiate(shipDebrisPrefabs[Random.Range(0, shipDebrisPrefabs.Count)]);
 
@@ -93,5 +96,10 @@ public class EnemyShipScript : MonoBehaviour
                 child.GetComponent<EnemyShipDebris>().AddExplosionForce(impactForce, collisionPoint, 0.1f);
             }
         }
+    }
+
+    public void AssociateLandingZone(GameObject landingZone)
+    {
+        _landingZone = landingZone;
     }
 }

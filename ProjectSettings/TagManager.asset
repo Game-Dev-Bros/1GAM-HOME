@@ -9,6 +9,7 @@ TagManager:
   - PlayerWeapon
   - PlayerProjectile
   - Debris
+  - LandingZone
   layers:
   - Default
   - TransparentFX

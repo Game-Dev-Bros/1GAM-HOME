@@ -55,4 +55,21 @@ public class EnemyShipDebris : MonoBehaviour
             _hasExploded = true;
         }
     }
+
+    void OnCollisionEnter(Collision other)
+    {
+        switch (other.gameObject.tag)
+        {
+            case "Enemy":
+                Destroy(gameObject);
+                break;
+
+            case "PlayerProjectile":
+                Destroy(other.gameObject);
+                break;
+
+            default:
+                break;
+        }
+    }
 }

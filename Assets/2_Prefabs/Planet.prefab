@@ -92,7 +92,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 159912, guid: 212178fafd63cfa4cbba61253ecc7800, type: 2}
-  waveNumber: 0
+  landingZoneParent: {fileID: 0}
+  landingZonePrefab: {fileID: 177672, guid: 9a766eadd52315945b9e7dda89326df4, type: 2}
+  waveNumber: 4
   waveFrequency:
   - 0.2
   - 0.4

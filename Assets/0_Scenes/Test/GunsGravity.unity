@@ -475,7 +475,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fallingSpeed: 4
-  idleTimer: 0.2
   freeHeight: 8
 --- !u!1 &239603255
 GameObject:
@@ -581,7 +580,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fallingSpeed: 4
-  idleTimer: 0.2
   freeHeight: 8
 --- !u!1 &406399294
 GameObject:
@@ -687,7 +685,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fallingSpeed: 4
-  idleTimer: 0.2
   freeHeight: 8
 --- !u!1 &421723483
 GameObject:
@@ -793,7 +790,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fallingSpeed: 4
-  idleTimer: 0.2
   freeHeight: 8
 --- !u!1 &425283186
 GameObject:
@@ -823,7 +819,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fallingSpeed: 3
-  idleTimer: 0.2
   freeHeight: 0
 --- !u!4 &425283190
 Transform:
@@ -1209,7 +1204,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fallingSpeed: 4
-  idleTimer: 0.2
   freeHeight: 8
 --- !u!43 &789056345
 Mesh:
@@ -1443,7 +1437,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fallingSpeed: 4
-  idleTimer: 0.2
   freeHeight: 8
 --- !u!1 &932095112
 GameObject:
@@ -1641,15 +1634,10 @@ Prefab:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 11439656, guid: fb5e4fcf75a11ba4fa87c3b3b304f61f, type: 2}
-      propertyPath: waveNumber
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 11439656, guid: fb5e4fcf75a11ba4fa87c3b3b304f61f, type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 11467496, guid: fb5e4fcf75a11ba4fa87c3b3b304f61f, type: 2}
+      propertyPath: landingZoneParent
+      value: 
+      objectReference: {fileID: 1749181953}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fb5e4fcf75a11ba4fa87c3b3b304f61f, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1004415163
@@ -1756,7 +1744,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fallingSpeed: 4
-  idleTimer: 0.2
   freeHeight: 8
 --- !u!1001 &1047622508
 Prefab:
@@ -2108,7 +2095,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fallingSpeed: 4
-  idleTimer: 0.2
   freeHeight: 8
 --- !u!1 &1284053015
 GameObject:
@@ -2447,7 +2433,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fallingSpeed: 4
-  idleTimer: 0.2
   freeHeight: 8
 --- !u!43 &1582294482
 Mesh:
@@ -2742,7 +2727,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fallingSpeed: 4
-  idleTimer: 0.2
   freeHeight: 8
 --- !u!1 &1700361715
 GameObject:
@@ -2848,7 +2832,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fallingSpeed: 4
-  idleTimer: 0.2
   freeHeight: 8
 --- !u!1 &1733700986
 GameObject:
@@ -2961,6 +2944,33 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 50620205b40cc994badb673fe4394e17, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1749181952
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1749181953}
+  m_Layer: 0
+  m_Name: LandingZones
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1749181953
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1749181952}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
 --- !u!43 &2005183395
 Mesh:
   m_ObjectHideFlags: 0
@@ -3449,5 +3459,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fallingSpeed: 4
-  idleTimer: 0.2
   freeHeight: 8
