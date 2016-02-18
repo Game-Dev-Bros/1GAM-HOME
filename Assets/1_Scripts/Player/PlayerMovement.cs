@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -56,5 +57,23 @@ public class PlayerMovement : MonoBehaviour
                 break;
             }
         }
+    }
+
+    public void GiveBoost(float duration, float increase)
+    {
+        StartCoroutine(SpeedBoost(duration, increase));
+    }
+
+    IEnumerator SpeedBoost(float duration, float increase)
+    {
+        var prevSpeed = movementSpeed;
+        movementSpeed = prevSpeed * increase;
+        var currDuration = 0f;
+        while(currDuration < duration)
+        {
+            currDuration -= Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+        movementSpeed = prevSpeed;
     }
 }

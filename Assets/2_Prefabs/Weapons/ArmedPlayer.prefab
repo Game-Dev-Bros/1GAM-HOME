@@ -9,7 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 469526}
   - 54: {fileID: 5461442}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: WeaponPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ GameObject:
   - 33: {fileID: 3381044}
   - 65: {fileID: 6594480}
   - 23: {fileID: 2394124}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -81,7 +81,8 @@ GameObject:
   - 65: {fileID: 6579916}
   - 23: {fileID: 2354530}
   - 114: {fileID: 11464620}
-  m_Layer: 8
+  - 65: {fileID: 6505680}
+  m_Layer: 0
   m_Name: Rotator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +101,7 @@ GameObject:
   - 65: {fileID: 6508828}
   - 23: {fileID: 2376606}
   - 114: {fileID: 11439486}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: MachinegunPrefab
   m_TagString: PlayerWeapon
   m_Icon: {fileID: 0}
@@ -118,6 +119,7 @@ GameObject:
   - 54: {fileID: 5419502}
   - 114: {fileID: 11416908}
   - 114: {fileID: 11484324}
+  - 114: {fileID: 11496534}
   m_Layer: 0
   m_Name: ArmedPlayer
   m_TagString: Player
@@ -137,7 +139,7 @@ GameObject:
   - 64: {fileID: 6496078}
   - 23: {fileID: 2311922}
   - 54: {fileID: 5452996}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: RadarPlane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -156,7 +158,7 @@ GameObject:
   - 65: {fileID: 6519138}
   - 23: {fileID: 2397668}
   - 114: {fileID: 11423562}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: PistolPrefab
   m_TagString: PlayerWeapon
   m_Icon: {fileID: 0}
@@ -175,7 +177,7 @@ GameObject:
   - 65: {fileID: 6573440}
   - 23: {fileID: 2357878}
   - 114: {fileID: 11461896}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: RocketlauncherPrefab
   m_TagString: PlayerWeapon
   m_Icon: {fileID: 0}
@@ -599,6 +601,18 @@ MeshCollider:
   serializedVersion: 2
   m_Convex: 1
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &6505680
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 120174}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: -1.02, y: 0.9999999, z: 0.9999999}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &6508828
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -804,6 +818,18 @@ MonoBehaviour:
   pistolPrefab: {fileID: 184960}
   machinegunPrefab: {fileID: 137644}
   rocketlauncherPrefab: {fileID: 191358}
+--- !u!114 &11496534
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 146302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04a74c1452138f249942fdc9a9026e49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hideCursor: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

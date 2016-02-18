@@ -75,6 +75,17 @@ namespace Weapons
         {
             HandleInput();
         }
+
+        public void GiveAmmo(int amount)
+        {
+            rocketlauncherScript.IncreaseAmmo(amount);
+        }
+
+        public void RemoveHeat(float amount)
+        {
+            pistolScript.RemoveHeat(amount);
+            machinegunScript.RemoveHeat(amount);
+        }
         
         void HandleInput()
         {

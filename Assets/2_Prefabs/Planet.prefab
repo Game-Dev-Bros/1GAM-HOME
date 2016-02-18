@@ -13,6 +13,7 @@ GameObject:
   - 23: {fileID: 2350118}
   - 54: {fileID: 5487150}
   - 114: {fileID: 11439656}
+  - 114: {fileID: 11435928}
   m_Layer: 0
   m_Name: Planet
   m_TagString: Planet
@@ -80,6 +81,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &11435928
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 131792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7204867a91bc2244fb8f8eeccce5cc2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  machinegunPrefab: {fileID: 113264, guid: 1fbe36e868ae9594d95bc1f41d89482e, type: 2}
+  rocketlauncherPrefab: {fileID: 113264, guid: d6fc2b01d1022fa4bbd05aadf230bba4, type: 2}
+  ammoPrefab: {fileID: 113264, guid: da4a7ff8171b4c046a46ff989a28d6f7, type: 2}
+  heatDispersorPrefab: {fileID: 113264, guid: f47873f6a682147438e3a64a7a93ade2, type: 2}
+  speedPrefab: {fileID: 113264, guid: f210f7ff1e895574d828d84bc99607e6, type: 2}
+  nukePrefab: {fileID: 113264, guid: 8d3447624ccaeab45a05bcbf4e6567d9, type: 2}
 --- !u!114 &11439656
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -94,9 +112,9 @@ MonoBehaviour:
   enemyPrefab: {fileID: 159912, guid: 212178fafd63cfa4cbba61253ecc7800, type: 2}
   landingZoneParent: {fileID: 0}
   landingZonePrefab: {fileID: 177672, guid: 9a766eadd52315945b9e7dda89326df4, type: 2}
-  waveNumber: 4
+  waveNumber: 0
   waveFrequency:
-  - 0.2
+  - 0
   - 0.4
   - 0.6
   - 1

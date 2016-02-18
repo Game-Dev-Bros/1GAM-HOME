@@ -44,7 +44,6 @@ GameObject:
   - 224: {fileID: 22419624}
   - 222: {fileID: 22264576}
   - 114: {fileID: 11403442}
-  - 114: {fileID: 11477230}
   m_Layer: 5
   m_Name: image
   m_TagString: Untagged
@@ -60,6 +59,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 496740}
+  - 114: {fileID: 11429002}
   m_Layer: 0
   m_Name: Cursor
   m_TagString: Untagged
@@ -152,7 +152,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: caea9571ad1d9c8459e8524f2dd41a69, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 41515ae9c270778409198ff75c7f59a2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -171,6 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04a74c1452138f249942fdc9a9026e49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hideCursor: 0
 --- !u!114 &11416384
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -273,6 +274,18 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11429002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 171420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04a74c1452138f249942fdc9a9026e49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hideCursor: 0
 --- !u!114 &11460812
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -316,17 +329,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &11477230
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 136482}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04a74c1452138f249942fdc9a9026e49, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!222 &22264576
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -427,7 +429,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 64, y: 62}
+  m_SizeDelta: {x: 64, y: 64}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22422350
 RectTransform:

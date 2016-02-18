@@ -10,6 +10,7 @@ TagManager:
   - PlayerProjectile
   - Debris
   - LandingZone
+  - Pickup
   layers:
   - Default
   - TransparentFX
@@ -25,7 +26,7 @@ TagManager:
   - PlayerProjectile
   - Radar
   - RadarInvisible
-  - 
+  - Pickup
   - 
   - 
   - 

@@ -273,9 +273,20 @@ namespace Weapons
             else return _currentHeat;
         }
 
-        void Update()
+        public void IncreaseAmmo(int amount)
         {
+            if (_currentAmmo + amount >= RocketlauncherAmmoLimit)
+                _currentAmmo = RocketlauncherAmmoLimit;
+            else
+                _currentAmmo += amount;
+        }
 
+        public void RemoveHeat(float amount)
+        {
+            if (_currentHeat - amount <= 0)
+                _currentHeat = 0;
+            else
+                _currentHeat -= amount;
         }
 
         public void ResetAmmoHeat()
