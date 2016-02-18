@@ -50,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
 
                 Quaternion targetRotation = Quaternion.FromToRotation(transform.up, surfaceNormal) * transform.rotation;
 
-                transform.position = hit.point;
+                transform.position = hit.point + transform.up * transform.lossyScale.y / 2;
                 transform.rotation = targetRotation;
 
                 break;
