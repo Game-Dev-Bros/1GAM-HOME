@@ -4,15 +4,18 @@ using System.Collections.Generic;
 
 public class EnemyShipScript : MonoBehaviour
 {
-    public float speed = 10;
+    public float flyingSpeed = 10;
     public int hp = 10;
     public bool hasLanded = false;
+
+    public float startLandingHeight = 1;
+    public float landingSpeed = 5;
+    public float postLandingWaitTime = 2;
+    private bool _isLanding = false;
 
     private bool _hasDied = false;
     private GameObject _planet;
     private RingRadarScript _radar;
-    //private bool _landed = false;
-    private bool _landed = false;
 
     private GameObject _landingZone;
 
@@ -39,15 +42,31 @@ public class EnemyShipScript : MonoBehaviour
         }
     }
 
-
     IEnumerator LandShip()
     {
         while (true)
         {
             if (!hasLanded && _planet != null)
             {
-                transform.position = Vector3.MoveTowards(transform.position, _planet.transform.position, speed * Time.deltaTime);
+                if(!_isLanding)
+                {
+                    RaycastHit[] hits = Physics.RaycastAll(transform.position, -transform.up, startLandingHeight);
+                    foreach(RaycastHit hit in hits)
+                    {
+                        if(hit.transform.gameObject == _planet)
+                        {
+                            _isLanding = true;
+                        }
+                    }
+
+                    transform.position += -transform.up * flyingSpeed * Time.deltaTime;
+                }
+                else
+                {
+                    transform.position = Vector3.Lerp(transform.position, _landingZone.transform.position, Time.deltaTime / landingSpeed);
+                }
             }
+
             yield return new WaitForEndOfFrame();
         }
     }
@@ -58,6 +77,7 @@ public class EnemyShipScript : MonoBehaviour
         {
             case "Planet":
                 hasLanded = true;
+                StartCoroutine(AlmostLanding());
                 break;
 
             case "PlayerProjectile":
@@ -104,7 +124,6 @@ public class EnemyShipScript : MonoBehaviour
         }
     }
 
-
     public float GetDistanceFromPlanetSurface()
     {
         RaycastHit hit;
@@ -115,5 +134,12 @@ public class EnemyShipScript : MonoBehaviour
     public void AssociateLandingZone(GameObject landingZone)
     {
         _landingZone = landingZone;
+    }
+
+    IEnumerator AlmostLanding()
+    {
+        Debug.Log("almost landing!");
+        yield return new WaitForSeconds(postLandingWaitTime);
+        Debug.Log("ship landed - game over!");
     }
 }
