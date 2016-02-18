@@ -61,19 +61,25 @@ public class PlayerMovement : MonoBehaviour
 
     public void GiveBoost(float duration, float increase)
     {
-        StartCoroutine(SpeedBoost(duration, increase));
+        if (isBoosting)
+            currDuration = 0f; //reset the boost;
+        else
+            StartCoroutine(SpeedBoost(duration, increase));
     }
 
+    bool isBoosting = false;
+    float currDuration = 0f;
     IEnumerator SpeedBoost(float duration, float increase)
     {
         var prevSpeed = movementSpeed;
         movementSpeed = prevSpeed * increase;
-        var currDuration = 0f;
+        isBoosting = true;
         while(currDuration < duration)
         {
             currDuration -= Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }
         movementSpeed = prevSpeed;
+        isBoosting = false;
     }
 }

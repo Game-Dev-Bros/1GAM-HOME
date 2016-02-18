@@ -266,6 +266,10 @@ namespace Weapons
             }
         }
 
+        /// <summary>
+        /// Returns value between 0 and 1 for the ammount of ammo or heat depending on weapon type.
+        /// </summary>
+        /// <returns></returns>
         public float GetCurrentAmmoOrHeat()
         {
             if (type == WeaponType.Rocketlauncher)
