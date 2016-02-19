@@ -65,8 +65,6 @@ public class RingRadarScript : MonoBehaviour {
         }
         else{
             RemoveShipToTrack(ship);
-            _indicatorList.Remove(indicator);
-            Destroy(indicator);
         }
     }
 
@@ -87,8 +85,13 @@ public class RingRadarScript : MonoBehaviour {
 
     public void RemoveShipToTrack(GameObject ship)
     {
-        if(_shipsToTrack.Contains(ship))
+        if (_shipsToTrack.Contains(ship))
+        {
+            var indicator = _indicatorList[_shipsToTrack.IndexOf(ship)];
             _shipsToTrack.Remove(ship);
+            _indicatorList.Remove(indicator);
+            Destroy(indicator);
+        }
     }
 
 	// Update is called once per frame
