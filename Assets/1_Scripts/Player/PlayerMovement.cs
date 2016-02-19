@@ -71,12 +71,13 @@ public class PlayerMovement : MonoBehaviour
     float currDuration = 0f;
     IEnumerator SpeedBoost(float duration, float increase)
     {
+        currDuration = 0f;
         var prevSpeed = movementSpeed;
         movementSpeed = prevSpeed * increase;
         isBoosting = true;
         while(currDuration < duration)
         {
-            currDuration -= Time.deltaTime;
+            currDuration += Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }
         movementSpeed = prevSpeed;
