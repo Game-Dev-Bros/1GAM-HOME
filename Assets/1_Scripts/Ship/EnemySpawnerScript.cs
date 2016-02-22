@@ -105,7 +105,7 @@ public class EnemySpawnerScript : MonoBehaviour
         enemy.transform.parent = gameObject.transform;
         enemy.transform.position = spawnPosition;
         enemy.transform.up = surfaceNormal;
-
+		enemy.transform.Rotate(Vector3.up, Random.Range(0, 360), Space.Self);
         enemy.GetComponent<EnemyShipScript>().AssociateLandingZone(landingZone);
     }
 }
