@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 [RequireComponent(typeof(MeshFilter))]
 public class EnemySpawnerScript : MonoBehaviour
@@ -16,6 +17,7 @@ public class EnemySpawnerScript : MonoBehaviour
 
     private bool _hasSpawned = false;
     private Mesh planetMesh;
+    private List<GameObject> _spawnedShips;
 
 	void Awake ()
     {
@@ -24,6 +26,7 @@ public class EnemySpawnerScript : MonoBehaviour
 
     void Start()
     {
+        _spawnedShips = new List<GameObject>();
         StartCoroutine(SpawnRoutine());
     }
 
@@ -105,7 +108,19 @@ public class EnemySpawnerScript : MonoBehaviour
         enemy.transform.parent = gameObject.transform;
         enemy.transform.position = spawnPosition;
         enemy.transform.up = surfaceNormal;
-		enemy.transform.Rotate(Vector3.up, Random.Range(0, 360), Space.Self);
+
         enemy.GetComponent<EnemyShipScript>().AssociateLandingZone(landingZone);
+        _spawnedShips.Add(enemy);
     }
+
+
+    public void NukeShips()
+    {
+        var numChildren = gameObject.transform.childCount;
+        foreach(var s in _spawnedShips){
+            s.GetComponent<EnemyShipScript>().SelfNuke();
+        }
+        _spawnedShips.Clear();
+    }
+
 }

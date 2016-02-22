@@ -29,6 +29,7 @@ public class PickupScript : MonoBehaviour
     private GameObject _player, _planet;
     private InventoryScript _playerInv;
     private PlayerMovement _playerMovementScript;
+    private EnemySpawnerScript _shipSpawner;
     private float _rotationAngle = 0;
 
     // Use this for initialization
@@ -36,6 +37,7 @@ public class PickupScript : MonoBehaviour
     {
         _player = GameObject.Find("Rotator");
         _planet = GameObject.Find("Planet");
+        _shipSpawner = _planet.GetComponent<EnemySpawnerScript>();
         _playerMovementScript = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
         _playerInv = GameObject.FindWithTag("Player").GetComponent<InventoryScript>();
         _item = transform.GetChild(0);
@@ -88,6 +90,7 @@ public class PickupScript : MonoBehaviour
                     break;
                 case PickupType.Nuke:
                     Debug.Log("Nuke picked up");
+                    _shipSpawner.NukeShips();
                     break;
                 default:
                     break;

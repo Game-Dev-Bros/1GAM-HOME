@@ -24,7 +24,7 @@ public class PickupSpawner : MonoBehaviour {
         {
             var nextWait = Mathf.Round( Random.value * 10 );
             var pos = Random.onUnitSphere/2f;
-            SpawnPickup(PickupScript.PickupType.Speed, pos);
+            SpawnPickup(PickupScript.PickupType.Nuke, pos);
             yield return new WaitForSeconds(nextWait);
         }
     }

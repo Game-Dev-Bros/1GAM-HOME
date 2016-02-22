@@ -102,6 +102,17 @@ public class EnemyShipScript : MonoBehaviour
         }
     }
 
+
+    private int _implosionForce = 200000; 
+
+    public void SelfNuke()
+    {
+        _hasDied = true;
+        _radar.RemoveShipToTrack(gameObject);
+        SpawnDebris(transform.position, _implosionForce);
+    }
+
+
     void SpawnDebris(Vector3 collisionPoint, float impactForce)
     {
         Destroy(gameObject);
