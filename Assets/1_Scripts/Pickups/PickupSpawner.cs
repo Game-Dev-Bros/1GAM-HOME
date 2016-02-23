@@ -3,6 +3,8 @@ using System.Collections;
 
 public class PickupSpawner : MonoBehaviour {
 
+    public PickupScript.PickupType currentSpawn = PickupScript.PickupType.Ammo;
+
     public GameObject machinegunPrefab;
     public GameObject rocketlauncherPrefab;
     public GameObject ammoPrefab;
@@ -24,7 +26,7 @@ public class PickupSpawner : MonoBehaviour {
         {
             var nextWait = Mathf.Round( Random.value * 10 );
             var pos = Random.onUnitSphere/2f;
-            SpawnPickup(PickupScript.PickupType.Nuke, pos);
+            SpawnPickup(currentSpawn, pos);
             yield return new WaitForSeconds(nextWait);
         }
     }

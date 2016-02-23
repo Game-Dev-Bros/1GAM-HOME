@@ -30,11 +30,13 @@ public class PickupScript : MonoBehaviour
     private InventoryScript _playerInv;
     private PlayerMovement _playerMovementScript;
     private EnemySpawnerScript _shipSpawner;
+    private HUDMessageScript _hud;
     private float _rotationAngle = 0;
 
     // Use this for initialization
     void Start()
     {
+        _hud = GameObject.Find("HUDMessage").GetComponent<HUDMessageScript>();
         _player = GameObject.Find("Rotator");
         _planet = GameObject.Find("Planet");
         _shipSpawner = _planet.GetComponent<EnemySpawnerScript>();
@@ -70,10 +72,12 @@ public class PickupScript : MonoBehaviour
             {
                 case PickupType.Machinegun:
                     _playerInv.hasMachinegun = true;
+                    _hud.ShowMessage("Machinegun picked up.\nPress [2] to equip.");
                     Debug.Log("Machinegun picked up");
                     break;
                 case PickupType.Rocketlauncher:
                     _playerInv.hasRocketlauncher = true;
+                    _hud.ShowMessage("Rocketlauncher picked up.\nPress [3] to equip.");
                     Debug.Log("Rocketlauncher picked up");
                     break;
                 case PickupType.Ammo:
