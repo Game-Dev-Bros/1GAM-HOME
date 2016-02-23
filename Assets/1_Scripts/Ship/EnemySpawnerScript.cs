@@ -114,11 +114,18 @@ public class EnemySpawnerScript : MonoBehaviour
     }
 
 
+    public void ReportShipDestroyed(GameObject s)
+    {
+        _spawnedShips.Remove(s);
+    }
+
     public void NukeShips()
     {
         var numChildren = gameObject.transform.childCount;
         foreach(var s in _spawnedShips){
-            s.GetComponent<EnemyShipScript>().SelfNuke();
+            var ship = s.GetComponent<EnemyShipScript>();
+            if (ship != null && !ship.IsDead())
+                ship.SelfNuke();
         }
         _spawnedShips.Clear();
     }

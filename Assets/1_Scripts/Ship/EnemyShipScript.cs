@@ -16,6 +16,7 @@ public class EnemyShipScript : MonoBehaviour
     private bool _hasDied = false;
     private GameObject _planet;
     private RingRadarScript _radar;
+    private EnemySpawnerScript _spawner;
 
     private GameObject _landingZone;
 
@@ -25,6 +26,7 @@ public class EnemyShipScript : MonoBehaviour
     {
         _planet = GameObject.FindGameObjectWithTag("Planet");
         _radar = GameObject.Find("RingRadar").GetComponent<RingRadarScript>();
+        _spawner = _planet.GetComponent<EnemySpawnerScript>();
     }
 
     void Start()
@@ -91,6 +93,8 @@ public class EnemyShipScript : MonoBehaviour
                     Vector3 collisionPoint = other.contacts[0].point;
                     float impactForce = ps.GetProjectileImpactForce();
 
+                    _spawner.ReportShipDestroyed(gameObject);
+
                     SpawnDebris(collisionPoint, impactForce);
                 }
 
@@ -152,5 +156,10 @@ public class EnemyShipScript : MonoBehaviour
         Debug.Log("almost landing!");
         yield return new WaitForSeconds(postLandingWaitTime);
         Debug.Log("ship landed - game over!");
+    }
+
+    public bool IsDead()
+    {
+        return _hasDied;
     }
 }
