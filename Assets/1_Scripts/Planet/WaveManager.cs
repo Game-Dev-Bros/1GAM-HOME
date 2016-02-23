@@ -89,6 +89,7 @@ public class WaveManager : MonoBehaviour
 			yield break;
 		}
 
+		DestroyPreviousDebris(5);
 		NextWave();
 
 		_waveStarted = false;
@@ -139,6 +140,15 @@ public class WaveManager : MonoBehaviour
             _hasSpawned = false;
         }
     }
+
+	void DestroyPreviousDebris(float duration = 3)
+	{
+		EnemyShipDebris[] debris = FindObjectsOfType<EnemyShipDebris>();
+
+		foreach(EnemyShipDebris d in debris) {
+			StartCoroutine(d.DestroyNow(duration));
+		}
+	}
 }
 
 [Serializable]

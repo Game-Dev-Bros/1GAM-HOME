@@ -132,15 +132,15 @@ MonoBehaviour:
   - waveNumber: 1
     shipsToSpawn: 1
     durationInSeconds: 10
-    transitionTimeInSeconds: 0
+    transitionTimeInSeconds: 5
   - waveNumber: 3
     shipsToSpawn: 3
     durationInSeconds: 30
-    transitionTimeInSeconds: 0
+    transitionTimeInSeconds: 5
   - waveNumber: 5
     shipsToSpawn: 9
     durationInSeconds: 30
-    transitionTimeInSeconds: 0
+    transitionTimeInSeconds: 5
 --- !u!135 &13592746
 SphereCollider:
   m_ObjectHideFlags: 1

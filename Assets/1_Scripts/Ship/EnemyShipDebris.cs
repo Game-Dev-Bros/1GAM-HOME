@@ -114,11 +114,20 @@ public class EnemyShipDebris : MonoBehaviour
 		StartCoroutine(DestroyNow());
 	}
 
-	public IEnumerator DestroyNow()
+	private bool _isDestroying;
+	public IEnumerator DestroyNow(float duration = 3)
 	{
+		if(_isDestroying)
+		{
+			yield break;
+		}
+
+		_isDestroying = true;
+
+		float _scaler = transform.localScale.x;
 		while(transform.localScale.x > 0.01)
 		{
-			transform.localScale -= Vector3.one * Time.deltaTime / 3; // 3 seconds to disappear
+			transform.localScale -= Vector3.one * _scaler * Time.deltaTime / duration;
 			yield return new WaitForEndOfFrame();
 		}
 
