@@ -476,6 +476,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fallingSpeed: 4
   freeHeight: 8
+  timeToSelfDestruct: 30
+  distanceToSelfDestruct: 20
 --- !u!1 &239603255
 GameObject:
   m_ObjectHideFlags: 0
@@ -581,6 +583,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fallingSpeed: 4
   freeHeight: 8
+  timeToSelfDestruct: 30
+  distanceToSelfDestruct: 20
 --- !u!1 &406399294
 GameObject:
   m_ObjectHideFlags: 0
@@ -686,6 +690,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fallingSpeed: 4
   freeHeight: 8
+  timeToSelfDestruct: 30
+  distanceToSelfDestruct: 20
 --- !u!1 &421723483
 GameObject:
   m_ObjectHideFlags: 0
@@ -791,6 +797,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fallingSpeed: 4
   freeHeight: 8
+  timeToSelfDestruct: 30
+  distanceToSelfDestruct: 20
 --- !u!1 &425283186
 GameObject:
   m_ObjectHideFlags: 0
@@ -820,6 +828,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fallingSpeed: 3
   freeHeight: 0
+  timeToSelfDestruct: 0
+  distanceToSelfDestruct: 0
 --- !u!4 &425283190
 Transform:
   m_ObjectHideFlags: 0
@@ -1205,6 +1215,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fallingSpeed: 4
   freeHeight: 8
+  timeToSelfDestruct: 30
+  distanceToSelfDestruct: 20
 --- !u!43 &789056345
 Mesh:
   m_ObjectHideFlags: 0
@@ -1438,6 +1450,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fallingSpeed: 4
   freeHeight: 8
+  timeToSelfDestruct: 30
+  distanceToSelfDestruct: 20
 --- !u!1 &932095112
 GameObject:
   m_ObjectHideFlags: 0
@@ -1745,6 +1759,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fallingSpeed: 4
   freeHeight: 8
+  timeToSelfDestruct: 30
+  distanceToSelfDestruct: 20
 --- !u!1001 &1047622508
 Prefab:
   m_ObjectHideFlags: 0
@@ -2096,6 +2112,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fallingSpeed: 4
   freeHeight: 8
+  timeToSelfDestruct: 30
+  distanceToSelfDestruct: 20
 --- !u!1 &1284053015
 GameObject:
   m_ObjectHideFlags: 0
@@ -2434,6 +2452,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fallingSpeed: 4
   freeHeight: 8
+  timeToSelfDestruct: 30
+  distanceToSelfDestruct: 20
 --- !u!43 &1582294482
 Mesh:
   m_ObjectHideFlags: 0
@@ -2728,6 +2748,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fallingSpeed: 4
   freeHeight: 8
+  timeToSelfDestruct: 30
+  distanceToSelfDestruct: 20
 --- !u!1 &1700361715
 GameObject:
   m_ObjectHideFlags: 0
@@ -2833,6 +2855,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fallingSpeed: 4
   freeHeight: 8
+  timeToSelfDestruct: 30
+  distanceToSelfDestruct: 20
 --- !u!1 &1733700986
 GameObject:
   m_ObjectHideFlags: 0
@@ -3452,3 +3476,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fallingSpeed: 4
   freeHeight: 8
+  timeToSelfDestruct: 30
+  distanceToSelfDestruct: 20

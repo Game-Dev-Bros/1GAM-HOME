@@ -1,13 +1,16 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class EnemyShipDebris : MonoBehaviour
 {
     public float fallingSpeed = 3;
     private bool _hasExploded = false;
-    private bool _isStatic = false;
     private new Rigidbody rigidbody;
 
     public float freeHeight;
+
+	public float timeToSelfDestruct;
+	public float distanceToSelfDestruct;
 
     void Awake()
     {
@@ -21,7 +24,7 @@ public class EnemyShipDebris : MonoBehaviour
 
     void ApplyGravity()
     {
-        if(!_hasExploded || _isStatic)
+        if(!_hasExploded)
         {
             return;
         }
@@ -53,6 +56,7 @@ public class EnemyShipDebris : MonoBehaviour
         {
             rigidbody.AddExplosionForce(impactForce, collisionPoint, explosionRadius);
             _hasExploded = true;
+			StartCoroutine(DestroySelf());
         }
     }
 
@@ -72,4 +76,52 @@ public class EnemyShipDebris : MonoBehaviour
                 break;
         }
     }
+
+	IEnumerator DestroySelf()
+	{
+		float runningTime = 0;
+
+		distanceToSelfDestruct += transform.position.magnitude; // add the distance from the origin
+
+		while(true)
+		{
+			if(timeToSelfDestruct == 0 && distanceToSelfDestruct == 0)
+			{
+				break;
+			}
+
+			if(timeToSelfDestruct > 0)
+			{
+				runningTime += Time.deltaTime;
+
+				if(runningTime > timeToSelfDestruct)
+				{
+					break;
+				}
+			}
+
+			if (distanceToSelfDestruct > 0)
+			{
+				if(transform.position.magnitude > distanceToSelfDestruct)
+				{
+					break;
+				}
+			}
+
+			yield return null;
+		}
+
+		StartCoroutine(DestroyNow());
+	}
+
+	public IEnumerator DestroyNow()
+	{
+		while(transform.localScale.x > 0.01)
+		{
+			transform.localScale -= Vector3.one * Time.deltaTime / 3; // 3 seconds to disappear
+			yield return new WaitForEndOfFrame();
+		}
+
+		Destroy(gameObject);
+	}
 }
