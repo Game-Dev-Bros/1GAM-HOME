@@ -1637,10 +1637,6 @@ Prefab:
       propertyPath: landingZoneParent
       value: 
       objectReference: {fileID: 1749181953}
-    - target: {fileID: 11439656, guid: fb5e4fcf75a11ba4fa87c3b3b304f61f, type: 2}
-      propertyPath: waveNumber
-      value: 4
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fb5e4fcf75a11ba4fa87c3b3b304f61f, type: 2}
   m_IsPrefabParent: 0
@@ -2936,26 +2932,6 @@ Prefab:
     - target: {fileID: 479132, guid: 50620205b40cc994badb673fe4394e17, type: 2}
       propertyPath: m_RootOrder
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5461442, guid: 50620205b40cc994badb673fe4394e17, type: 2}
-      propertyPath: m_IsKinematic
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5461442, guid: 50620205b40cc994badb673fe4394e17, type: 2}
-      propertyPath: m_Constraints
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5419502, guid: 50620205b40cc994badb673fe4394e17, type: 2}
-      propertyPath: m_CollisionDetection
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5419502, guid: 50620205b40cc994badb673fe4394e17, type: 2}
-      propertyPath: m_Interpolate
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5419502, guid: 50620205b40cc994badb673fe4394e17, type: 2}
-      propertyPath: m_Constraints
-      value: 112
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 50620205b40cc994badb673fe4394e17, type: 2}
