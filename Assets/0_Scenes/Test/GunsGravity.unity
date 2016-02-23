@@ -386,7 +386,7 @@ GameObject:
   - 114: {fileID: 235433063}
   m_Layer: 0
   m_Name: EnemyShip10
-  m_TagString: Untagged
+  m_TagString: Debris
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -491,7 +491,7 @@ GameObject:
   - 114: {fileID: 239603261}
   m_Layer: 0
   m_Name: EnemyShip8
-  m_TagString: Untagged
+  m_TagString: Debris
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -596,7 +596,7 @@ GameObject:
   - 114: {fileID: 406399300}
   m_Layer: 0
   m_Name: EnemyShip6
-  m_TagString: Untagged
+  m_TagString: Debris
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -701,7 +701,7 @@ GameObject:
   - 114: {fileID: 421723489}
   m_Layer: 0
   m_Name: EnemyShip2
-  m_TagString: Untagged
+  m_TagString: Debris
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -802,7 +802,7 @@ GameObject:
   - 114: {fileID: 425283188}
   m_Layer: 0
   m_Name: EnemyShip
-  m_TagString: Debris
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1115,7 +1115,7 @@ GameObject:
   - 114: {fileID: 728965671}
   m_Layer: 0
   m_Name: EnemyShip4
-  m_TagString: Untagged
+  m_TagString: Debris
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1348,7 +1348,7 @@ GameObject:
   - 114: {fileID: 849744483}
   m_Layer: 0
   m_Name: EnemyShip1
-  m_TagString: Untagged
+  m_TagString: Debris
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1637,6 +1637,10 @@ Prefab:
       propertyPath: landingZoneParent
       value: 
       objectReference: {fileID: 1749181953}
+    - target: {fileID: 11439656, guid: fb5e4fcf75a11ba4fa87c3b3b304f61f, type: 2}
+      propertyPath: waveNumber
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fb5e4fcf75a11ba4fa87c3b3b304f61f, type: 2}
   m_IsPrefabParent: 0
@@ -1655,7 +1659,7 @@ GameObject:
   - 114: {fileID: 1004415169}
   m_Layer: 0
   m_Name: EnemyShip9
-  m_TagString: Untagged
+  m_TagString: Debris
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2006,7 +2010,7 @@ GameObject:
   - 114: {fileID: 1173011201}
   m_Layer: 0
   m_Name: EnemyShip3
-  m_TagString: Untagged
+  m_TagString: Debris
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2344,7 +2348,7 @@ GameObject:
   - 114: {fileID: 1507638867}
   m_Layer: 0
   m_Name: EnemyShip5
-  m_TagString: Untagged
+  m_TagString: Debris
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2638,7 +2642,7 @@ GameObject:
   - 114: {fileID: 1625334424}
   m_Layer: 0
   m_Name: EnemyShip11
-  m_TagString: Untagged
+  m_TagString: Debris
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2743,7 +2747,7 @@ GameObject:
   - 114: {fileID: 1700361721}
   m_Layer: 0
   m_Name: EnemyShip7
-  m_TagString: Untagged
+  m_TagString: Debris
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2940,6 +2944,18 @@ Prefab:
     - target: {fileID: 5461442, guid: 50620205b40cc994badb673fe4394e17, type: 2}
       propertyPath: m_Constraints
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5419502, guid: 50620205b40cc994badb673fe4394e17, type: 2}
+      propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5419502, guid: 50620205b40cc994badb673fe4394e17, type: 2}
+      propertyPath: m_Interpolate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5419502, guid: 50620205b40cc994badb673fe4394e17, type: 2}
+      propertyPath: m_Constraints
+      value: 112
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 50620205b40cc994badb673fe4394e17, type: 2}
@@ -3370,7 +3386,7 @@ GameObject:
   - 114: {fileID: 2109610133}
   m_Layer: 0
   m_Name: EnemyShip12
-  m_TagString: Untagged
+  m_TagString: Debris
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

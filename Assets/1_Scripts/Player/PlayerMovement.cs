@@ -3,84 +3,88 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private new Rigidbody rigidbody;
+	private new Rigidbody rigidbody;
 
-    public float movementSpeed = 5; // meters per second
+	public float movementSpeed = 5; // meters per second
 
-    private Vector3 surfaceNormal = Vector3.zero;
+	private Vector3 surfaceNormal = Vector3.zero;
 
-    void Awake()
-    {
-        rigidbody = GetComponent<Rigidbody>();
-    }
+	void Awake()
+	{
+		rigidbody = GetComponent<Rigidbody>();
+	}
 
-    void Update()
-    {
-        ApplyMovement();
-        AlignPlayerToSurface();
-    }
+	void Update()
+	{
+		AlignPlayerToSurface();
+		ApplyMovement();
+	}
 
-    void ApplyMovement()
-    {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
+	void ApplyMovement()
+	{
+		float horizontal = Input.GetAxis("Horizontal");
+		float vertical = Input.GetAxis("Vertical");
 
-        Vector3 transformDiff = Vector3.zero;
-        transformDiff += vertical * transform.forward;
-        transformDiff += horizontal * transform.right;
-        if(transformDiff.magnitude > 1)
-        {
-            transformDiff.Normalize();
-        }
+		Vector3 transformDiff = Vector3.zero;
+		transformDiff += vertical * transform.forward;
+		transformDiff += horizontal * transform.right;
+		if (transformDiff.magnitude > 1)
+		{
+			transformDiff.Normalize();
+		}
 
-        Vector3 targetPosition = transform.position + transformDiff * movementSpeed * Time.deltaTime;
-        transform.position = targetPosition;
-    }
+		Vector3 targetPosition = transform.position + transformDiff * movementSpeed * Time.deltaTime;
 
-    void AlignPlayerToSurface()
-    {
-        Ray ray = new Ray(transform.position, -transform.up);
+		rigidbody.angularVelocity = Vector3.zero;
+		rigidbody.velocity = Vector3.zero;
 
-        var hits = Physics.RaycastAll(ray, transform.localScale.y);
+		transform.position = targetPosition;
+	}
 
-        foreach(RaycastHit hit in hits)
-        {
-            if(hit.transform.tag == "Planet")
-            {
-                surfaceNormal = hit.normal;
+	void AlignPlayerToSurface()
+	{
+		Ray ray = new Ray(transform.position, -transform.up);
 
-                Quaternion targetRotation = Quaternion.FromToRotation(transform.up, surfaceNormal) * transform.rotation;
+		var hits = Physics.RaycastAll(ray, transform.localScale.y);
 
-                transform.position = hit.point + transform.up * transform.lossyScale.y / 2;
-                transform.rotation = targetRotation;
+		foreach (RaycastHit hit in hits)
+		{
+			if (hit.transform.tag == "Planet")
+			{
+				surfaceNormal = hit.normal;
 
-                break;
-            }
-        }
-    }
+				Quaternion targetRotation = Quaternion.FromToRotation(transform.up, surfaceNormal) * transform.rotation;
 
-    public void GiveBoost(float duration, float increase)
-    {
-        if (isBoosting)
-            currDuration = 0f; //reset the boost;
-        else
-            StartCoroutine(SpeedBoost(duration, increase));
-    }
+				transform.position = hit.point + transform.up * transform.lossyScale.y / 2;
+				transform.rotation = targetRotation;
 
-    bool isBoosting = false;
-    float currDuration = 0f;
-    IEnumerator SpeedBoost(float duration, float increase)
-    {
-        currDuration = 0f;
-        var prevSpeed = movementSpeed;
-        movementSpeed = prevSpeed * increase;
-        isBoosting = true;
-        while(currDuration < duration)
-        {
-            currDuration += Time.deltaTime;
-            yield return new WaitForEndOfFrame();
-        }
-        movementSpeed = prevSpeed;
-        isBoosting = false;
-    }
+				break;
+			}
+		}
+	}
+
+	public void GiveBoost(float duration, float increase)
+	{
+		if (isBoosting)
+			currDuration = 0f; //reset the boost;
+		else
+			StartCoroutine(SpeedBoost(duration, increase));
+	}
+
+	bool isBoosting = false;
+	float currDuration = 0f;
+	IEnumerator SpeedBoost(float duration, float increase)
+	{
+		currDuration = 0f;
+		var prevSpeed = movementSpeed;
+		movementSpeed = prevSpeed * increase;
+		isBoosting = true;
+		while (currDuration < duration)
+		{
+			currDuration += Time.deltaTime;
+			yield return new WaitForEndOfFrame();
+		}
+		movementSpeed = prevSpeed;
+		isBoosting = false;
+	}
 }
