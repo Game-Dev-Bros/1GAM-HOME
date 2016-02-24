@@ -13,6 +13,7 @@ public class RingRadarScript : MonoBehaviour {
     private GameObject _player;
     private GameObject _radarPlane;
     private EnemySpawnerScript _spawner;
+    private EnemyShipScript _currentShipScript;
     private Image _radarCircle;
     private float _enemySpawnDistance;
 
@@ -61,9 +62,16 @@ public class RingRadarScript : MonoBehaviour {
 
         if (!ship.GetComponent<EnemyShipScript>().hasLanded){
             var pointer = indicator.transform.GetChild(0);
-            pointer.transform.localScale = new Vector3(pointer.transform.localScale.x, pointer.transform.localScale.y, ship.GetComponent<EnemyShipScript>().GetDistanceFromPlanetSurface() / _enemySpawnDistance);
+            _currentShipScript = ship.GetComponent<EnemyShipScript>();
+            var startLandingHeight = _currentShipScript.GetStartLandingHeight();
+            var currDistFromPlanet = _currentShipScript.GetDistanceFromPlanetSurface();
+            //pointer.transform.localScale = new Vector3(pointer.transform.localScale.x, pointer.transform.localScale.y, ship.GetComponent<EnemyShipScript>().GetDistanceFromPlanetSurface() / _enemySpawnDistance);
+            if(currDistFromPlanet > startLandingHeight)
+                pointer.transform.localScale = new Vector3(pointer.transform.localScale.x, pointer.transform.localScale.y, 1);
+            else
+                pointer.transform.localScale = new Vector3(pointer.transform.localScale.x, pointer.transform.localScale.y, currDistFromPlanet/startLandingHeight);
         }
-        else{
+        else {
             RemoveShipToTrack(ship);
         }
     }

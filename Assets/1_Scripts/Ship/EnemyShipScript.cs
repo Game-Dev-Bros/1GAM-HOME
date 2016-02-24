@@ -139,6 +139,11 @@ public class EnemyShipScript : MonoBehaviour
         }
     }
 
+    public float GetStartLandingHeight()
+    {
+        return startLandingHeight;
+    }
+
     public float GetDistanceFromPlanetSurface()
     {
         RaycastHit hit;
