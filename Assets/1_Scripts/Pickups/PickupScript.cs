@@ -80,18 +80,22 @@ public class PickupScript : MonoBehaviour
                     break;
                 case PickupType.Ammo:
                     _playerInv.GiveAmmo(ammoPickupAmount);
+                    _hud.ShowMessage("Ammo picked up", 1);
                     Debug.Log("Ammo picked up");
                     break;
                 case PickupType.HeatDispertion:
                     _playerInv.RemoveHeat(heatDisperseAmount);
+                    _hud.ShowMessage("Heat dispersor picked up", 1);
                     Debug.Log("Heat dispersor picked up");
                     break;
                 case PickupType.Speed:
                     _playerMovementScript.GiveBoost(speedDuration, speedIncrease);
+                    _hud.ShowMessage("Speed boost picked up", 1);
                     Debug.Log("Speed boost picked up");
                     break;
                 case PickupType.Nuke:
                     Debug.Log("Nuke picked up");
+                    _hud.ShowMessage("Nuke picked up", 1);
                     _shipSpawner.NukeShips();
                     break;
                 default:

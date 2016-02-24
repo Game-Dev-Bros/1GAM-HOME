@@ -4,14 +4,15 @@ using UnityEngine.UI;
 
 public class HUDMessageScript : MonoBehaviour {
 
-    public float fadeInLength = 0f;
-    public float showLength = 3f;
-    public float fadeOutLength = 1f;
+    private float fadeInLength = 1f;
+    //public float showLength = 3f;
+    private float fadeOutLength = 1f;
 
     private Text _message;
     private float currAnimLength = 0f;
     private float currStep = 0f;
     private Color _color, _clear;
+    private Coroutine c;
 
 	// Use this for initialization
 	void Awake () {
@@ -22,15 +23,17 @@ public class HUDMessageScript : MonoBehaviour {
         //ShowMessage("Hello from the other side!");
     }
 	
-    public void ShowMessage(string m)
+    public void ShowMessage(string m, float dur = 3f)
     {
+        if (c != null)
+            StopCoroutine(c);
         _message.color = _clear;
         _message.text = m;
-        StartCoroutine(Animate());
+        c = StartCoroutine(Animate(dur));
     }
 
     //TODO: doesnt fade out when fade in == 0 && fade out > 0
-    IEnumerator Animate(int steps = 60)
+    IEnumerator Animate(float dur, int steps = 60)
     {
         _message.enabled = true;
 
@@ -48,7 +51,7 @@ public class HUDMessageScript : MonoBehaviour {
         }
         else _message.color = _color;
 
-        yield return new WaitForSeconds(showLength);
+        yield return new WaitForSeconds(dur);
 
         currAnimLength = 0f;
         currStep = 0f;
