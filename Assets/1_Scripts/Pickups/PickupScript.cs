@@ -33,6 +33,8 @@ public class PickupScript : MonoBehaviour
     private EnemySpawnerScript _shipSpawner;
     private HUDMessageScript _hud;
     private float _rotationAngle = 0;
+    float _finalDist;
+    private bool _grounded = false;
 
     // Use this for initialization
     void Start()
@@ -44,6 +46,7 @@ public class PickupScript : MonoBehaviour
         _playerMovementScript = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
         _playerInv = GameObject.FindWithTag("Player").GetComponent<InventoryScript>();
         _item = transform.GetChild(0);
+        _finalDist = _planet.transform.localScale.x/2f; //raio do planeta
 
         transform.forward = (_planet.transform.position - transform.position).normalized;
         //transform.rotation = Quaternion.LookRotation((_player.transform.position - transform.position));
@@ -51,18 +54,27 @@ public class PickupScript : MonoBehaviour
         StartCoroutine(RunAnimation());
     }
 
+    void Fall()
+    {
+        if ((transform.position - _planet.transform.position).magnitude > _finalDist)
+        {
+            transform.position += transform.forward * 0.02f;
+        }
+        else _grounded = true;
+    }
 
     IEnumerator RunAnimation()
     {
         while (true)
         {
+            if(!_grounded)
+                Fall();
             //Debug.DrawRay(transform.position, transform.forward, Color.red, 0.1f);
             _item.localPosition = new Vector3(0, 0, ((Mathf.Cos(Time.time * translationSpeed) * translationRange) + translationOffset));
             _item.localEulerAngles = new Vector3(_item.localEulerAngles.x, _item.localEulerAngles.y, _item.localEulerAngles.z + rotationSpeed);
             yield return new WaitForEndOfFrame();
         }
     }
-
     void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.tag == "Player")
