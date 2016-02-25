@@ -13,27 +13,50 @@ public class PickupSpawner : MonoBehaviour {
     public GameObject nukePrefab;
 
     private GameObject _planet;
-    
-    // Use this for initialization
-    void Start () {
+
+    void Start ()
+	{
         _planet = GameObject.Find("Planet");
-        StartCoroutine(SpawnSequence());
 	}
 
-    IEnumerator SpawnSequence()
-    {
-        while (true)
-        {
-            var nextWait = Mathf.Round( Random.value * 10 );
-            var pos = Random.onUnitSphere/2f;
-            SpawnPickup(currentSpawn, pos);
-            yield return new WaitForSeconds(nextWait);
-        }
-    }
+	private PickupScript.PickupType GetRandomPickup()
+	{
+		float r = Random.Range(0f, 100f);
 
-    public void SpawnPickup(PickupScript.PickupType type, Vector3 pos)
+		float delta = (100 - 5) / 3f;
+
+		if(r < delta * 1)
+		{
+			return PickupScript.PickupType.Ammo;
+		}
+
+		if(r < delta * 2)
+		{
+			return PickupScript.PickupType.HeatDispertion;
+		}
+
+		if(r < delta * 3)
+		{
+			return PickupScript.PickupType.Speed;
+		}
+
+		if(r >= 95)
+		{
+			return PickupScript.PickupType.Nuke;
+		}
+
+		return PickupScript.PickupType.None;
+	}
+
+    public void SpawnPickup(Vector3 pos, PickupScript.PickupType type = PickupScript.PickupType.None)
     {
         GameObject instance;
+
+		if(type == PickupScript.PickupType.None)
+		{
+			type = GetRandomPickup();
+		}
+
         switch (type)
         {
             case PickupScript.PickupType.Machinegun:
@@ -55,11 +78,10 @@ public class PickupSpawner : MonoBehaviour {
                 instance = Instantiate(nukePrefab);
                 break;
             default:
-                instance = Instantiate(ammoPrefab);
-                break;
+				return;
         }
 
         instance.transform.parent = _planet.transform;
-        instance.transform.localPosition = pos;
+        instance.transform.position = pos;
     }
 }

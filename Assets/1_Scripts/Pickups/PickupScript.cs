@@ -7,6 +7,7 @@ public class PickupScript : MonoBehaviour
 
     public enum PickupType
     {
+		None,
         Machinegun,
         Rocketlauncher,
         Ammo,

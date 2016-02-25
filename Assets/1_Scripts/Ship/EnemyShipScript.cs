@@ -100,6 +100,7 @@ public class EnemyShipScript : MonoBehaviour
 
 					scoreManager.IncreaseScoreBy(Constants.Score.ENEMY_SHIP_KILLED);
                     SpawnDebris(collisionPoint, impactForce);
+					FindObjectOfType<PickupSpawner>().SpawnPickup(transform.position);
                 }
 
                 Destroy(other.gameObject);
