@@ -11,18 +11,23 @@ public class WaveManager : MonoBehaviour
 	private List<Wave> waveSettings = new List<Wave>();
 
 	private EnemySpawnerScript enemySpawner;
+	private HUDScoreScript scoreManager;
+    private HUDMessageScript hudMessage;
 
 	private int _waveNumber;
 	private int _shipsToSpawn;
 	private float _durationInSeconds;
 	private float _transitionTimeInSeconds;
 	private bool _waveStarted;
+	private int _waveShipsSpawned;
 
     private bool _hasSpawned = false;
 
 	void Awake()
 	{
 		enemySpawner = FindObjectOfType<EnemySpawnerScript>();
+		scoreManager = FindObjectOfType<HUDScoreScript>();
+		hudMessage = GameObject.Find("HUDMessageCenter").GetComponent<HUDMessageScript>();
 	}
 
 	void Start()
@@ -37,6 +42,7 @@ public class WaveManager : MonoBehaviour
 		Wave next = null;
 
 		_waveNumber++;
+		_waveShipsSpawned = 0;
 
 		for(int i = 0; i < waveSettings.Count; i++)
 		{
@@ -91,9 +97,11 @@ public class WaveManager : MonoBehaviour
 
 		DestroyPreviousDebris(5);
 		NextWave();
+		
+		hudMessage.ShowMessage(Constants.Waves.WAVE_START.Replace(Constants.Waves.Tags.WAVE_NUMBER, "" + _waveNumber));
 
 		_waveStarted = false;
-		float _currentDuration = _durationInSeconds;
+		float _currentDuration = _durationInSeconds - _transitionTimeInSeconds;
 
 		while (_currentDuration > 0)
         {
@@ -109,13 +117,21 @@ public class WaveManager : MonoBehaviour
                 yield return StartCoroutine(SpawnShip());
             }
 			
-			if(_waveStarted && enemySpawner.IsEmpty())
+			if(_waveStarted && _waveShipsSpawned == _shipsToSpawn)
 			{
 				break;
 			}
 
             yield return null;
         }
+
+		while(!enemySpawner.IsEmpty())
+		{
+			 yield return null;
+		}
+
+		scoreManager.IncreaseScoreBy(Constants.Score.WAVE_CLEARED_MULTIPLIER * _waveNumber);
+		hudMessage.ShowMessage(Constants.Waves.WAVE_CLEARED.Replace(Constants.Waves.Tags.WAVE_NUMBER, "" + _waveNumber));
 
 		yield return new WaitForSeconds(_transitionTimeInSeconds);
 		yield return StartCoroutine(SpawnWave());
@@ -129,6 +145,7 @@ public class WaveManager : MonoBehaviour
 			_waveStarted = true;
 
             enemySpawner.SpawnShip();
+			_waveShipsSpawned++;
 
             var waitTime = _durationInSeconds / _shipsToSpawn;
             while (waitTime > 0)

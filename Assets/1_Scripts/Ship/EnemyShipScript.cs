@@ -17,16 +17,19 @@ public class EnemyShipScript : MonoBehaviour
     private GameObject _planet;
     private RingRadarScript _radar;
     private EnemySpawnerScript _spawner;
-
     private GameObject _landingZone;
 
-    private List<GameObject> shipDebrisPrefabs = new List<GameObject>();
+	private HUDScoreScript scoreManager;
+
+	private List<GameObject> shipDebrisPrefabs = new List<GameObject>();
 
 	void Awake ()
     {
         _planet = GameObject.FindGameObjectWithTag("Planet");
         _radar = GameObject.Find("RingRadar").GetComponent<RingRadarScript>();
         _spawner = _planet.GetComponent<EnemySpawnerScript>();
+
+		scoreManager = FindObjectOfType<HUDScoreScript>();
     }
 
     void Start()
@@ -95,6 +98,7 @@ public class EnemyShipScript : MonoBehaviour
 
                     _spawner.ReportShipDestroyed(gameObject);
 
+					scoreManager.IncreaseScoreBy(Constants.Score.ENEMY_SHIP_KILLED);
                     SpawnDebris(collisionPoint, impactForce);
                 }
 
