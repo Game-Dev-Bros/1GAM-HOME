@@ -7,15 +7,30 @@ public class HUDScoreScript : MonoBehaviour {
     private Text _scoreText;
     private int _score;
 
+	private Text _highscoreText;
+	private int _highscore;
+
 	// Use this for initialization
 	void Awake () {
         _score = 0;
         _scoreText = GameObject.Find("HUDScore").GetComponent<Text>();
+
+		_highscoreText = GameObject.Find("Highscore").GetComponent<Text>();
+
+		_highscore = PlayerPrefs.GetInt(Constants.Prefs.HIGHSCORE);
+		_highscoreText.text = Constants.Strings.HIGHSCORE_PREFIX + _highscore;
 	}
 
     void SetString()
     {
         _scoreText.text = "score\n"+_score.ToString();
+
+		if(_score > _highscore)
+		{
+			_highscore = _score;
+			PlayerPrefs.SetInt(Constants.Prefs.HIGHSCORE, _highscore);
+			_highscoreText.text = Constants.Strings.HIGHSCORE_PREFIX + _highscore;
+		}
     }
 
     public void ResetScore()

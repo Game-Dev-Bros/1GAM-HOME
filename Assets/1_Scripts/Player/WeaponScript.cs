@@ -64,8 +64,12 @@ namespace Weapons
 
         private bool _hasShot = false;
 
+		private PauseManager pauseManager;
+
         void Awake()
         {
+			pauseManager = FindObjectOfType<PauseManager>();
+
             SetupGun();
             SetupUI();
             if (type != WeaponType.Rocketlauncher)
@@ -224,7 +228,7 @@ namespace Weapons
 
         IEnumerator FireRoutine()
         {
-            if (!_hasShot)
+            if (!_hasShot && !pauseManager.paused)
             {
                 _hasShot = true;
                 SpawnProjectile();
@@ -249,19 +253,27 @@ namespace Weapons
                         _isOnCooldown = false;
                     yield return new WaitForEndOfFrame();
                 }                
-                switch (type)
-                {
-                    case WeaponType.Pistol:
-                        if (_currentHeat > 0)
-                            _currentHeat -= PistolHeatDissipateRate / 100f;
-                        _currentHeat = Mathf.Clamp(_currentHeat, 0, 1);
-                        break;
-                    case WeaponType.Machinegun:
-                        if (_currentHeat > 0)
-                            _currentHeat -= MachinegunHeatDissipateRate / 100f;
-                        _currentHeat = Mathf.Clamp(_currentHeat, 0, 1);
-                        break;
-                }
+
+				if(pauseManager.paused)
+				{
+					yield return new WaitForEndOfFrame();
+					continue;
+				}
+
+				switch (type)
+				{
+					case WeaponType.Pistol:
+						if (_currentHeat > 0)
+							_currentHeat -= PistolHeatDissipateRate / 100f;
+						_currentHeat = Mathf.Clamp(_currentHeat, 0, 1);
+						break;
+					case WeaponType.Machinegun:
+						if (_currentHeat > 0)
+							_currentHeat -= MachinegunHeatDissipateRate / 100f;
+						_currentHeat = Mathf.Clamp(_currentHeat, 0, 1);
+						break;
+				}
+
                 yield return new WaitForEndOfFrame();
             }
         }
