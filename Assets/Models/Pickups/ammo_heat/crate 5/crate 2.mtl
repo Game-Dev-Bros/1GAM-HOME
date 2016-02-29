@@ -1,0 +1,28 @@
+newmtl material32
+Kd 0.258824 0.098039 0.039216
+Ks 0.756863 0.756863 0.756863
+Ns 100.000000
+d 1.000000
+illum 2
+map_Kd c:\users\jay\pictures\downloads\hex\crate 5\crate 27.png
+newmtl material34
+Kd 0.820000 0.830000 0.870000
+Ks 0.150000 0.150000 0.150000
+Ns 100.000000
+d 1.000000
+illum 2
+map_Kd c:\users\jay\pictures\downloads\hex\crate 5\crate 21.png
+newmtl material36
+Kd 0.933333 0.933333 0.933333
+Ks 0.150000 0.150000 0.150000
+Ns 100.000000
+d 1.000000
+illum 2
+map_Kd c:\users\jay\pictures\downloads\hex\crate 5\crate 22.png
+newmtl material39
+Kd 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ns 100.000000
+d 1.000000
+illum 2
+map_Kd c:\users\jay\pictures\downloads\hex\crate 5\crate 21.png
