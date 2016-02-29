@@ -1,0 +1,25 @@
+# Blender MTL File: 'M24_R.blend'
+# Material Count: 2
+
+newmtl Material.006
+Ns 76.470588
+Ka 0.000000 0.000000 0.000000
+Kd 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd C:\Users\pmslu\Downloads\67529_Submachine_gun_M24_R\BLENDSWAP_NEU\M24_R_DONE\Neuer Ordner\textures\M24R_S.jpg
+map_Bump C:\\Users\\pmslu\\Downloads\\67529_Submachine_gun_M24_R\\BLENDSWAP_NEU\\M24_R_DONE\\Neuer Ordner\\textures\\M24R_N.jpg
+map_Ks C:\\Users\\pmslu\\Downloads\\67529_Submachine_gun_M24_R\\BLENDSWAP_NEU\\M24_R_DONE\\Neuer Ordner\\textures\\M24R_S.jpg
+refl C:\\Users\\pmslu\\Downloads\\67529_Submachine_gun_M24_R\\BLENDSWAP_NEU\\M24_R_DONE\\Neuer Ordner\\textures\\glanz .jpg
+
+newmtl Material_976ce44c.dds
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.243451 0.243451 0.243451
+Ks 0.000000 0.000000 0.000000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd 976ce44c.dds
