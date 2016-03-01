@@ -193,11 +193,11 @@ namespace Weapons
                     break;
             }
             //projectile.transform.parent = gameObject.transform;
-            projectile.transform.localPosition = transform.position;
-            projectile.transform.localRotation = transform.rotation;
+            projectile.transform.localPosition = transform.parent.position;
+            projectile.transform.localRotation = transform.parent.rotation;
             //projectile.transform.localRotation = Quaternion.identity;
             projectile.GetComponent<ProjectileScript>().SetupProjectile(_range, _damage, _radius, _projectileSpeed, _impactForce);
-            projectile.GetComponent<Rigidbody>().AddForce(transform.forward * _projectileSpeed, ForceMode.Force);
+            projectile.GetComponent<Rigidbody>().AddForce(transform.parent.forward * _projectileSpeed, ForceMode.Force);
             projectile.GetComponent<ProjectileScript>().Shoot();
         }
 

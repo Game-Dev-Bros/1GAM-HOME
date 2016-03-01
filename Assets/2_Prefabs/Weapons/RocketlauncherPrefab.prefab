@@ -12,7 +12,7 @@ GameObject:
   - 65: {fileID: 6574438}
   - 23: {fileID: 2374794}
   - 114: {fileID: 11410184}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RocketlauncherPrefab
   m_TagString: PlayerWeapon
   m_Icon: {fileID: 0}
@@ -25,9 +25,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 146502}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalRotation: {x: -0.7071068, y: -0.000000115202326, z: -0.7071067, w: -0.00000011520231}
+  m_LocalPosition: {x: 0.094, y: -0, z: -0}
+  m_LocalScale: {x: -0.03867019, y: -0.038670212, z: -0.038670212}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -37,11 +37,11 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 146502}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: adf76cf0445725f42aac52c8bab14cde, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -63,7 +63,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 146502}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 4300000, guid: 184b3af168cc8c948911406a9747ffc0, type: 3}
 --- !u!65 &6574438
 BoxCollider:
   m_ObjectHideFlags: 1
