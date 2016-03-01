@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Weapons;
 
 public class WaveManager : MonoBehaviour
 {
@@ -13,6 +14,10 @@ public class WaveManager : MonoBehaviour
 	private EnemySpawnerScript enemySpawner;
 	private HUDScoreScript scoreManager;
     private HUDMessageScript hudMessage;
+    private Transform machinegunDrop;
+    private Transform rocketlauncherDrop;
+    private GameObject _player;
+    private PickupSpawner _pickupSpawner;
 
 	private int _waveNumber;
 	private int _shipsToSpawn;
@@ -25,6 +30,9 @@ public class WaveManager : MonoBehaviour
 
 	void Awake()
 	{
+        _player = GameObject.Find(Constants.Game.PLAYER_NAME);
+        _pickupSpawner = GameObject.Find("Planet").GetComponent<PickupSpawner>();
+
 		enemySpawner = FindObjectOfType<EnemySpawnerScript>();
 		scoreManager = FindObjectOfType<HUDScoreScript>();
 		hudMessage = GameObject.Find("HUDMessageCenter").GetComponent<HUDMessageScript>();
@@ -133,7 +141,12 @@ public class WaveManager : MonoBehaviour
 		scoreManager.IncreaseScoreBy(Constants.Score.WAVE_CLEARED_MULTIPLIER * _waveNumber);
 		hudMessage.ShowMessage(Constants.Waves.WAVE_CLEARED.Replace(Constants.Waves.Tags.WAVE_NUMBER, "" + _waveNumber));
 
-		yield return new WaitForSeconds(_transitionTimeInSeconds);
+        if (_waveNumber == Constants.Waves.WAVE_MACHINEGUN_DROP)
+            _pickupSpawner.SpawnPickup(_player.transform.position + _player.transform.forward * 3, PickupScript.PickupType.Machinegun);
+        if(_waveNumber == Constants.Waves.WAVE_MACHINEGUN_DROP)
+            _pickupSpawner.SpawnPickup(_player.transform.position + _player.transform.forward * 3, PickupScript.PickupType.Rocketlauncher);
+
+        yield return new WaitForSeconds(_transitionTimeInSeconds);
 		yield return StartCoroutine(SpawnWave());
     }
 

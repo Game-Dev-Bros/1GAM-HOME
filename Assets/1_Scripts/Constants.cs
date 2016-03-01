@@ -32,5 +32,15 @@
 
 		public const string WAVE_CLEARED = "Wave " + Tags.WAVE_NUMBER + " cleared!";
         public const string WAVE_START = "Wave "+ Tags.WAVE_NUMBER;
+
+        public const int WAVE_MACHINEGUN_DROP = 3;
+        public const int WAVE_ROCKETLAUNCHER_DROP = 5;
+    }
+
+    public static class Game
+    {
+
+        public static string PLAYER_NAME = "Alien";
+       
     }
 }

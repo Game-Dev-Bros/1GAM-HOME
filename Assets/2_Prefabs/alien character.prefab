@@ -100,6 +100,7 @@ GameObject:
   - 4: {fileID: 436344}
   - 137: {fileID: 13765622}
   - 114: {fileID: 11486814}
+  - 114: {fileID: 11497092}
   m_Layer: 0
   m_Name: Machinegun
   m_TagString: Untagged
@@ -646,6 +647,7 @@ GameObject:
   - 4: {fileID: 436028}
   - 137: {fileID: 13767590}
   - 114: {fileID: 11450488}
+  - 114: {fileID: 11485758}
   m_Layer: 0
   m_Name: Pistol
   m_TagString: Untagged
@@ -663,6 +665,7 @@ GameObject:
   - 4: {fileID: 448474}
   - 137: {fileID: 13706520}
   - 114: {fileID: 11426948}
+  - 114: {fileID: 11451708}
   m_Layer: 0
   m_Name: Rocketlauncher
   m_TagString: Untagged
@@ -1846,7 +1849,55 @@ MonoBehaviour:
   machinegunProjectile: {fileID: 193636, guid: 442a268a03223314ab223bd8a9934e44, type: 2}
   rocketlauncherProjectile: {fileID: 193636, guid: 43aad344c7b22e4419d3dfb37f6e5f94,
     type: 2}
+--- !u!114 &11451708
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 169740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48b4564623c2d134eabb3920a03750d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 2
+  pistolProjectile: {fileID: 193636, guid: 137bd24d31114ad4194e75ce13994a64, type: 2}
+  machinegunProjectile: {fileID: 193636, guid: 442a268a03223314ab223bd8a9934e44, type: 2}
+  rocketlauncherProjectile: {fileID: 193636, guid: 43aad344c7b22e4419d3dfb37f6e5f94,
+    type: 2}
+--- !u!114 &11485758
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 168786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48b4564623c2d134eabb3920a03750d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  pistolProjectile: {fileID: 193636, guid: 137bd24d31114ad4194e75ce13994a64, type: 2}
+  machinegunProjectile: {fileID: 193636, guid: 442a268a03223314ab223bd8a9934e44, type: 2}
+  rocketlauncherProjectile: {fileID: 193636, guid: 43aad344c7b22e4419d3dfb37f6e5f94,
+    type: 2}
 --- !u!114 &11486814
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 111858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48b4564623c2d134eabb3920a03750d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1
+  pistolProjectile: {fileID: 193636, guid: 137bd24d31114ad4194e75ce13994a64, type: 2}
+  machinegunProjectile: {fileID: 193636, guid: 442a268a03223314ab223bd8a9934e44, type: 2}
+  rocketlauncherProjectile: {fileID: 193636, guid: 43aad344c7b22e4419d3dfb37f6e5f94,
+    type: 2}
+--- !u!114 &11497092
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
