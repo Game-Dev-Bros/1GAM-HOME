@@ -10,12 +10,14 @@
     {
         public const string MAIN_MENU = "MainMenu";
         public const string PAUSE_MENU = "PauseMenu";
+        public const string LOSE_MENU = "LoseMenu";
         public const string GAME = "Gameplay";
     }
 
     public static class Strings
     {
         public const string HIGHSCORE_PREFIX = "Highscore: ";
+        public const string GAME_OVER = "Your planet was invaded\n by the earthling scum.\nGame over!";
     }
 
 	public static class Prefs

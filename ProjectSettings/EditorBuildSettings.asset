@@ -10,6 +10,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/0_Scenes/GUI/MainMenu.unity
   - enabled: 1
-    path: Assets/0_Scenes/GUI/PauseMenu.unity
-  - enabled: 1
     path: Assets/0_Scenes/Levels/Gameplay.unity
+  - enabled: 1
+    path: Assets/0_Scenes/GUI/LoseMenu.unity
+  - enabled: 1
+    path: Assets/0_Scenes/GUI/PauseMenu.unity

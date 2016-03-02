@@ -11,6 +11,16 @@ public class PauseManager : MonoBehaviour
 			return _paused;
 		}
 	}
+
+	private bool _ended;
+	public bool ended
+	{
+		get
+		{
+			return _ended;
+		}
+	}
+
 	void Update()
 	{
 		if(Input.GetButtonDown("Cancel"))
@@ -21,6 +31,11 @@ public class PauseManager : MonoBehaviour
 
 	public void SetPause(bool paused)
 	{
+		if(_ended)
+		{
+			return;
+		}
+
 		_paused  = paused;
 
 		if(_paused)
@@ -32,6 +47,27 @@ public class PauseManager : MonoBehaviour
 		{
 			Time.timeScale = 1;
 			SceneManager.UnloadScene(Constants.Levels.PAUSE_MENU);
+		}
+	}
+
+	public void SetEnded(bool ended)
+	{
+		_ended  = ended;
+
+		HUDMessageScript hudMessage = GameObject.Find("HUDMessageCenter").GetComponent<HUDMessageScript>();
+
+		if (_ended)
+		{
+			_paused = true;
+			Time.timeScale = 0;
+			hudMessage.ShowMessage(Constants.Strings.GAME_OVER, 10000);
+			SceneManager.LoadScene(Constants.Levels.LOSE_MENU, LoadSceneMode.Additive);
+		}
+		else
+		{
+			hudMessage.ShowMessage("", 0);
+			Time.timeScale = 1;
+			SceneManager.UnloadScene(Constants.Levels.LOSE_MENU);
 		}
 	}
 }

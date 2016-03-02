@@ -163,9 +163,8 @@ public class EnemyShipScript : MonoBehaviour
 
     IEnumerator AlmostLanding()
     {
-        Debug.Log("almost landing!");
         yield return new WaitForSeconds(postLandingWaitTime);
-        Debug.Log("ship landed - game over!");
+		FindObjectOfType<PauseManager>().SetEnded(true);
     }
 
     public bool IsDead()

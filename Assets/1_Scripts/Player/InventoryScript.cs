@@ -18,11 +18,13 @@ namespace Weapons
         private GameObject weaponEquipPosition;
         private Image _ammoUIGauge, _heatUIGauge;
 
+		private PauseManager pauseManager;
         // Use this for initialization
         void Awake()
         {
             //TODO load player prefs
             weaponEquipPosition = GameObject.Find("WeaponPosition");
+			pauseManager = FindObjectOfType<PauseManager>();
             InitWeapons();
             InitUI();
             EquipPistol();
@@ -89,6 +91,11 @@ namespace Weapons
         
         void HandleInput()
         {
+			if(pauseManager.paused)
+			{
+				return;
+			}
+
             if (Input.GetButtonDown("EquipPistol"))
                 EquipPistol();
             else if (Input.GetButtonDown("EquipMachinegun") && hasMachinegun)
