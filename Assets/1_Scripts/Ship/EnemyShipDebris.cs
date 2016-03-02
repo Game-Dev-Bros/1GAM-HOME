@@ -6,7 +6,8 @@ public class EnemyShipDebris : MonoBehaviour
     public float fallingSpeed = 3;
     private bool _hasExploded = false;
     private new Rigidbody rigidbody;
-
+    private GameObject _player;
+    private AudioSource _hitConfirm;
     public float freeHeight;
 
 	public float timeToSelfDestruct;
@@ -14,6 +15,8 @@ public class EnemyShipDebris : MonoBehaviour
 
     void Awake()
     {
+        _player = GameObject.FindWithTag("Player");
+        _hitConfirm = _player.GetComponents<AudioSource>()[1];
         rigidbody = GetComponent<Rigidbody>();
     }
 
@@ -69,6 +72,7 @@ public class EnemyShipDebris : MonoBehaviour
                 break;
 
             case "PlayerProjectile":
+                _hitConfirm.Play();
                 Destroy(other.gameObject);
                 break;
 

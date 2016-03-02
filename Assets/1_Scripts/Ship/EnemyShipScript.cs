@@ -15,6 +15,8 @@ public class EnemyShipScript : MonoBehaviour
 
     private bool _hasDied = false;
     private GameObject _planet;
+    private GameObject _player;
+    private AudioSource _hitConfirm;
     private RingRadarScript _radar;
     private EnemySpawnerScript _spawner;
     private GameObject _landingZone;
@@ -25,6 +27,8 @@ public class EnemyShipScript : MonoBehaviour
 
 	void Awake ()
     {
+        _player = GameObject.FindWithTag("Player");
+        _hitConfirm = _player.GetComponents<AudioSource>()[1];
         _planet = GameObject.FindGameObjectWithTag("Planet");
         _radar = GameObject.Find("RingRadar").GetComponent<RingRadarScript>();
         _spawner = _planet.GetComponent<EnemySpawnerScript>();
@@ -102,7 +106,7 @@ public class EnemyShipScript : MonoBehaviour
                     SpawnDebris(collisionPoint, impactForce);
 					FindObjectOfType<PickupSpawner>().SpawnPickup(transform.position);
                 }
-
+                _hitConfirm.Play();
                 Destroy(other.gameObject);
                 break;
 

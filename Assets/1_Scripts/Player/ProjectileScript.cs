@@ -79,7 +79,7 @@ public class ProjectileScript : MonoBehaviour
             }
         }
     }
-
+    
     void MoveProjectile()
     {
         Vector3 positionDelta = transform.forward * _speed * Time.deltaTime;
