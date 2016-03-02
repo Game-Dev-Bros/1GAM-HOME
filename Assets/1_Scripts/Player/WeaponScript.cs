@@ -61,6 +61,7 @@ namespace Weapons
         private int _currentAmmo;
         private bool _isOnCooldown = false;
         private Image _heatUIGauge, _ammoUIGauge;
+        private AudioSource _audioSource;
 
         private bool _hasShot = false;
 
@@ -73,7 +74,11 @@ namespace Weapons
             SetupGun();
             SetupUI();
             if (type != WeaponType.Rocketlauncher)
+            {
                 StartCoroutine(DissipateHeat());
+                _audioSource = GetComponent<AudioSource>();
+            }
+
         }
 
         void OnValidate()
@@ -199,6 +204,11 @@ namespace Weapons
             projectile.GetComponent<ProjectileScript>().SetupProjectile(_range, _damage, _radius, _projectileSpeed, _impactForce);
             projectile.GetComponent<Rigidbody>().AddForce(transform.parent.forward * _projectileSpeed, ForceMode.Force);
             projectile.GetComponent<ProjectileScript>().Shoot();
+
+            if (type == WeaponType.Machinegun || type == WeaponType.Pistol)
+                if (_audioSource.clip.loadState == AudioDataLoadState.Loaded)
+                    _audioSource.Play();
+
         }
 
         void UpdateAmmoAndHeatAfterShot()

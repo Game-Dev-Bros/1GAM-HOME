@@ -9,6 +9,7 @@ public class ProjectileScript : MonoBehaviour
     private float _impactForce;
     private float _speed;
     private GameObject _player;
+    private AudioSource _audioSource;
 
     private float _currentDistance;
 
@@ -18,7 +19,10 @@ public class ProjectileScript : MonoBehaviour
     void Awake ()
     {
         _player = GameObject.FindWithTag("Player");
-	}
+        if (!GetComponent<AudioSource>().Equals(null))
+            _audioSource = GetComponent<AudioSource>();
+
+    }
 	
     public void SetupProjectile(/*GunScript.GunType t,*/ float ran, float dmg, float rad, float speed, float imp)
     {
@@ -84,9 +88,12 @@ public class ProjectileScript : MonoBehaviour
     }
 
     IEnumerator CheckStatus()
-    {        
+    {
+
         while(_currentDistance < _range)
         {
+            if (_audioSource)
+                _audioSource.volume = 1 - (_currentDistance / _range) * 2;
             yield return new WaitForSeconds(0.1f);
         }
 

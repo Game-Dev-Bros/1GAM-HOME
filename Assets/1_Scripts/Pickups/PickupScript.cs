@@ -113,7 +113,9 @@ public class PickupScript : MonoBehaviour
                     break;
                 default:
                     break;
+
             }
+            other.transform.GetComponent<AudioSource>().Play();
             Destroy(gameObject);
         }
 

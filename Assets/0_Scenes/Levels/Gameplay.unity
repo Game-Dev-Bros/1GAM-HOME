@@ -25,7 +25,7 @@ RenderSettings:
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 2
   m_AmbientMode: 3
-  m_SkyboxMaterial: {fileID: 2100000, guid: b2b69eab29269f84997c620d0c75ef13, type: 2}
+  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -651,6 +651,84 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 337251875}
+--- !u!1 &360809741 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 146302, guid: 50620205b40cc994badb673fe4394e17, type: 2}
+  m_PrefabInternal: {fileID: 1743679877}
+--- !u!82 &360809742
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 360809741}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 62f53a37bd95399448984dbf440c6378, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!43 &396516520
 Mesh:
   m_ObjectHideFlags: 0
@@ -2828,7 +2906,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1023686121}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
@@ -3589,7 +3667,7 @@ Camera:
   m_GameObject: {fileID: 1284053015}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 2
   m_BackGroundColor: {r: 0.045793675, g: 0.04800136, b: 0.051470578, a: 0.019607844}
   m_NormalizedViewPortRect:
     serializedVersion: 2
@@ -5151,142 +5229,30 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2376606, guid: 50620205b40cc994badb673fe4394e17, type: 2}
-      propertyPath: m_Enabled
+    - target: {fileID: 8220094, guid: 50620205b40cc994badb673fe4394e17, type: 2}
+      propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3357134, guid: 50620205b40cc994badb673fe4394e17, type: 2}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 4300004, guid: 9df7021e1cc3dda4181323979d90c1ea, type: 3}
-    - target: {fileID: 424690, guid: 50620205b40cc994badb673fe4394e17, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 0.03374307
+    - target: {fileID: 8220094, guid: 50620205b40cc994badb673fe4394e17, type: 2}
+      propertyPath: Priority
+      value: 80
       objectReference: {fileID: 0}
-    - target: {fileID: 424690, guid: 50620205b40cc994badb673fe4394e17, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 0.033743065
+    - target: {fileID: 8220094, guid: 50620205b40cc994badb673fe4394e17, type: 2}
+      propertyPath: m_Volume
+      value: 0.628
       objectReference: {fileID: 0}
-    - target: {fileID: 424690, guid: 50620205b40cc994badb673fe4394e17, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 0.033743065
+    - target: {fileID: 8276684, guid: 50620205b40cc994badb673fe4394e17, type: 2}
+      propertyPath: spreadCustomCurve.m_RotationOrder
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2397668, guid: 50620205b40cc994badb673fe4394e17, type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: ee4da99bc40ff4b48b4a8287d9b34bc4, type: 2}
-    - target: {fileID: 424690, guid: 50620205b40cc994badb673fe4394e17, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0.6992677
+    - target: {fileID: 8276684, guid: 50620205b40cc994badb673fe4394e17, type: 2}
+      propertyPath: Priority
+      value: 93
       objectReference: {fileID: 0}
-    - target: {fileID: 424690, guid: 50620205b40cc994badb673fe4394e17, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 0.71485996
+    - target: {fileID: 8276684, guid: 50620205b40cc994badb673fe4394e17, type: 2}
+      propertyPath: m_Volume
+      value: 0.666
       objectReference: {fileID: 0}
-    - target: {fileID: 424690, guid: 50620205b40cc994badb673fe4394e17, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0.221
-      objectReference: {fileID: 0}
-    - target: {fileID: 424690, guid: 50620205b40cc994badb673fe4394e17, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -0.129
-      objectReference: {fileID: 0}
-    - target: {fileID: 424690, guid: 50620205b40cc994badb673fe4394e17, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0.035
-      objectReference: {fileID: 0}
-    - target: {fileID: 3313606, guid: 50620205b40cc994badb673fe4394e17, type: 2}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 4300000, guid: c3699d427677d404eb806a92742c95da, type: 3}
-    - target: {fileID: 457202, guid: 50620205b40cc994badb673fe4394e17, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 0.06337148
-      objectReference: {fileID: 0}
-    - target: {fileID: 457202, guid: 50620205b40cc994badb673fe4394e17, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 0.040235855
-      objectReference: {fileID: 0}
-    - target: {fileID: 457202, guid: 50620205b40cc994badb673fe4394e17, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 0.040235855
-      objectReference: {fileID: 0}
-    - target: {fileID: 457202, guid: 50620205b40cc994badb673fe4394e17, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0.199
-      objectReference: {fileID: 0}
-    - target: {fileID: 457202, guid: 50620205b40cc994badb673fe4394e17, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0.186
-      objectReference: {fileID: 0}
-    - target: {fileID: 457202, guid: 50620205b40cc994badb673fe4394e17, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0.69998145
-      objectReference: {fileID: 0}
-    - target: {fileID: 457202, guid: 50620205b40cc994badb673fe4394e17, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 0.71416104
-      objectReference: {fileID: 0}
-    - target: {fileID: 457202, guid: 50620205b40cc994badb673fe4394e17, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0.017
-      objectReference: {fileID: 0}
-    - target: {fileID: 2376606, guid: 50620205b40cc994badb673fe4394e17, type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 987991668fbdd7f4895b75ba9e8d4bca, type: 2}
-    - target: {fileID: 3305928, guid: 50620205b40cc994badb673fe4394e17, type: 2}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 4300000, guid: 184b3af168cc8c948911406a9747ffc0, type: 3}
-    - target: {fileID: 2357878, guid: 50620205b40cc994badb673fe4394e17, type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 460264, guid: 50620205b40cc994badb673fe4394e17, type: 2}
-      propertyPath: m_LocalScale.x
-      value: -0.03867019
-      objectReference: {fileID: 0}
-    - target: {fileID: 460264, guid: 50620205b40cc994badb673fe4394e17, type: 2}
-      propertyPath: m_LocalScale.y
-      value: -0.038670212
-      objectReference: {fileID: 0}
-    - target: {fileID: 460264, guid: 50620205b40cc994badb673fe4394e17, type: 2}
-      propertyPath: m_LocalScale.z
-      value: -0.038670212
-      objectReference: {fileID: 0}
-    - target: {fileID: 460264, guid: 50620205b40cc994badb673fe4394e17, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 460264, guid: 50620205b40cc994badb673fe4394e17, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: -0.00000011520231
-      objectReference: {fileID: 0}
-    - target: {fileID: 460264, guid: 50620205b40cc994badb673fe4394e17, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0.000000115202326
-      objectReference: {fileID: 0}
-    - target: {fileID: 460264, guid: 50620205b40cc994badb673fe4394e17, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0.7071067
-      objectReference: {fileID: 0}
-    - target: {fileID: 460264, guid: 50620205b40cc994badb673fe4394e17, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0.094
-      objectReference: {fileID: 0}
-    - target: {fileID: 460264, guid: 50620205b40cc994badb673fe4394e17, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 460264, guid: 50620205b40cc994badb673fe4394e17, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2357878, guid: 50620205b40cc994badb673fe4394e17, type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: adf76cf0445725f42aac52c8bab14cde, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 50620205b40cc994badb673fe4394e17, type: 2}
   m_IsPrefabParent: 0
@@ -6368,7 +6334,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2111203290}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
