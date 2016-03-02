@@ -774,14 +774,14 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 62f53a37bd95399448984dbf440c6378, type: 3}
+  m_audioClip: {fileID: 8300000, guid: e8bb6741603a8744d8b80018f603a294, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.786
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
-  Priority: 128
+  Priority: 80
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -1189,8 +1189,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dee9812a12afb2945a25de4c2a07b685, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasMachinegun: 1
-  hasRocketlauncher: 1
+  hasMachinegun: 0
+  hasRocketlauncher: 0
   pistolPrefab: {fileID: 184960}
   machinegunPrefab: {fileID: 137644}
   rocketlauncherPrefab: {fileID: 191358}

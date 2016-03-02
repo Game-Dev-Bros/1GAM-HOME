@@ -102,23 +102,23 @@ namespace Weapons
                 EquipMachinegun();
             else if (Input.GetButtonDown("EquipRocketlauncher") && hasRocketlauncher)
                 EquipRocketlauncher();
-            else if (Input.GetButtonDown("Reload"))
-            {
-                switch (_equipedWeaponType)
-                {
-                    case WeaponType.Pistol:
-                        pistolScript.ResetAmmoHeat();
-                        break;
-                    case WeaponType.Machinegun:
-                        machinegunScript.ResetAmmoHeat();
-                        break;
-                    case WeaponType.Rocketlauncher:
-                        rocketlauncherScript.ResetAmmoHeat();
-                        break;
-                    default:
-                        break;
-                }
-            }
+            //else if (Input.GetButtonDown("Reload"))
+            //{
+            //    switch (_equipedWeaponType)
+            //    {
+            //        case WeaponType.Pistol:
+            //            pistolScript.ResetAmmoHeat();
+            //            break;
+            //        case WeaponType.Machinegun:
+            //            machinegunScript.ResetAmmoHeat();
+            //            break;
+            //        case WeaponType.Rocketlauncher:
+            //            rocketlauncherScript.ResetAmmoHeat();
+            //            break;
+            //        default:
+            //            break;
+            //    }
+            //}
             else if (Input.GetMouseButton(0))
             {
                 switch (_equipedWeaponType)
