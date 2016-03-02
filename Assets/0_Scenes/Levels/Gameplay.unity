@@ -422,7 +422,7 @@ Transform:
   - {fileID: 1602337945}
   - {fileID: 1733700987}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!43 &247977375
 Mesh:
   m_ObjectHideFlags: 0

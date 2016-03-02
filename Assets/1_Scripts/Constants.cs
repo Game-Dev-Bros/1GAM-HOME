@@ -42,7 +42,7 @@
     public static class Game
     {
 
-        public static string PLAYER_NAME = "Alien";
+        public static string PLAYER_NAME = "Cube";
        
     }
 }

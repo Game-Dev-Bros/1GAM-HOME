@@ -143,7 +143,7 @@ public class WaveManager : MonoBehaviour
 
         if (_waveNumber == Constants.Waves.WAVE_MACHINEGUN_DROP)
             _pickupSpawner.SpawnPickup(_player.transform.position + _player.transform.forward * 3, PickupScript.PickupType.Machinegun);
-        if(_waveNumber == Constants.Waves.WAVE_MACHINEGUN_DROP)
+        if(_waveNumber == Constants.Waves.WAVE_ROCKETLAUNCHER_DROP)
             _pickupSpawner.SpawnPickup(_player.transform.position + _player.transform.forward * 3, PickupScript.PickupType.Rocketlauncher);
 
         yield return new WaitForSeconds(_transitionTimeInSeconds);
