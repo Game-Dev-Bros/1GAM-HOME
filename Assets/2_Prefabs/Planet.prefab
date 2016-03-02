@@ -139,8 +139,8 @@ MonoBehaviour:
     durationInSeconds: 30
     transitionTimeInSeconds: 5
   - waveNumber: 5
-    shipsToSpawn: 9
-    durationInSeconds: 30
+    shipsToSpawn: 10
+    durationInSeconds: 45
     transitionTimeInSeconds: 5
   - waveNumber: 100
     shipsToSpawn: 30
