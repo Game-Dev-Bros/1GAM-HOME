@@ -19,9 +19,8 @@ public class ProjectileScript : MonoBehaviour
     void Awake ()
     {
         _player = GameObject.FindWithTag("Player");
-        if (!GetComponent<AudioSource>().Equals(null))
+        if (GetComponent<AudioSource>() != null)
             _audioSource = GetComponent<AudioSource>();
-
     }
 	
     public void SetupProjectile(/*GunScript.GunType t,*/ float ran, float dmg, float rad, float speed, float imp)
