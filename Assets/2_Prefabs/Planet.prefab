@@ -128,6 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isRunning: 1
+  waveNumber: 0
   waveSettings:
   - waveNumber: 1
     shipsToSpawn: 1
@@ -140,6 +141,10 @@ MonoBehaviour:
   - waveNumber: 5
     shipsToSpawn: 9
     durationInSeconds: 30
+    transitionTimeInSeconds: 5
+  - waveNumber: 100
+    shipsToSpawn: 30
+    durationInSeconds: 100
     transitionTimeInSeconds: 5
 --- !u!135 &13592746
 SphereCollider:

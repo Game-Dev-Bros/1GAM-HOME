@@ -7,6 +7,7 @@ using Weapons;
 public class WaveManager : MonoBehaviour
 {
 	public bool isRunning = true;
+	public int waveNumber;
 
 	[SerializeField]
 	private List<Wave> waveSettings = new List<Wave>();
@@ -19,7 +20,6 @@ public class WaveManager : MonoBehaviour
     private GameObject _player;
     private PickupSpawner _pickupSpawner;
 
-	private int _waveNumber;
 	private int _shipsToSpawn;
 	private float _durationInSeconds;
 	private float _transitionTimeInSeconds;
@@ -49,18 +49,18 @@ public class WaveManager : MonoBehaviour
 		Wave current = null;
 		Wave next = null;
 
-		_waveNumber++;
+		waveNumber++;
 		_waveShipsSpawned = 0;
 
 		for(int i = 0; i < waveSettings.Count; i++)
 		{
-			if(_waveNumber < waveSettings[i].waveNumber)
+			if(waveNumber < waveSettings[i].waveNumber)
 			{
 				previous = waveSettings[i-1];
 				next = waveSettings[i];
 				break;
 			}
-			else if(_waveNumber == waveSettings[i].waveNumber)
+			else if(waveNumber == waveSettings[i].waveNumber)
 			{
 				current = waveSettings[i];
 				break;
@@ -71,10 +71,10 @@ public class WaveManager : MonoBehaviour
 		{
 			if(next != null)
 			{
-				int waveDifference = next.waveNumber - previous.waveNumber;
-				int waveOffset = _waveNumber - previous.waveNumber;
+				float waveDifference = next.waveNumber - previous.waveNumber;
+				int waveOffset = waveNumber - previous.waveNumber;
 
-				_shipsToSpawn = previous.shipsToSpawn + ((next.shipsToSpawn - previous.shipsToSpawn) / waveDifference) * waveOffset;
+				_shipsToSpawn = (int) (previous.shipsToSpawn + ((next.shipsToSpawn - previous.shipsToSpawn) / waveDifference) * waveOffset);
 				_durationInSeconds = previous.durationInSeconds + ((next.durationInSeconds - previous.durationInSeconds) / waveDifference) * waveOffset;
 				_transitionTimeInSeconds = previous.transitionTimeInSeconds + ((next.transitionTimeInSeconds - previous.transitionTimeInSeconds) / waveDifference) * waveOffset;
 			}
@@ -90,7 +90,7 @@ public class WaveManager : MonoBehaviour
 			_transitionTimeInSeconds = current.transitionTimeInSeconds;
 		}
 
-		Debug.Log("wave " + _waveNumber);
+		Debug.Log("wave " + waveNumber);
 		Debug.Log("ships: " + _shipsToSpawn);
 		Debug.Log("duration: " + _durationInSeconds);
 		Debug.Log("transition: " + _transitionTimeInSeconds);
@@ -106,7 +106,7 @@ public class WaveManager : MonoBehaviour
 		DestroyPreviousDebris(5);
 		NextWave();
 		
-		hudMessage.ShowMessage(Constants.Waves.WAVE_START.Replace(Constants.Waves.Tags.WAVE_NUMBER, "" + _waveNumber));
+		hudMessage.ShowMessage(Constants.Waves.WAVE_START.Replace(Constants.Waves.Tags.WAVE_NUMBER, "" + waveNumber));
 
 		_waveStarted = false;
 		float _currentDuration = _durationInSeconds - _transitionTimeInSeconds;
@@ -138,12 +138,12 @@ public class WaveManager : MonoBehaviour
 			 yield return null;
 		}
 
-		scoreManager.IncreaseScoreBy(Constants.Score.WAVE_CLEARED_MULTIPLIER * _waveNumber);
-		hudMessage.ShowMessage(Constants.Waves.WAVE_CLEARED.Replace(Constants.Waves.Tags.WAVE_NUMBER, "" + _waveNumber));
+		scoreManager.IncreaseScoreBy(Constants.Score.WAVE_CLEARED_MULTIPLIER * waveNumber);
+		hudMessage.ShowMessage(Constants.Waves.WAVE_CLEARED.Replace(Constants.Waves.Tags.WAVE_NUMBER, "" + waveNumber));
 
-        if (_waveNumber == Constants.Waves.WAVE_MACHINEGUN_DROP)
+        if (waveNumber == Constants.Waves.WAVE_MACHINEGUN_DROP)
             _pickupSpawner.SpawnPickup(_player.transform.position + _player.transform.forward * 3, PickupScript.PickupType.Machinegun);
-        if(_waveNumber == Constants.Waves.WAVE_ROCKETLAUNCHER_DROP)
+        if(waveNumber == Constants.Waves.WAVE_ROCKETLAUNCHER_DROP)
             _pickupSpawner.SpawnPickup(_player.transform.position + _player.transform.forward * 3, PickupScript.PickupType.Rocketlauncher);
 
         yield return new WaitForSeconds(_transitionTimeInSeconds);
